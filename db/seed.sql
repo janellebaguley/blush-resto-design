@@ -1,7 +1,7 @@
 create table blush_user(user_id serial primary key,
-username varchar(20) not null,
-email varchar(100) not null,
-password varchar(250) not null);
+username varchar(20),
+email varchar(100),
+password varchar(250));
 
 create table furniture(product_id serial primary key,
 product_name varchar(50),
