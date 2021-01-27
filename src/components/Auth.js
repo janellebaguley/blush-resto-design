@@ -25,7 +25,7 @@ handleRegister = () => {
     axios.post('api/register', {username, email, password})
         .then(res => {
             this.props.getUser(res.data)
-            this.props.history.push('/dash')
+            this.props.history.push('/login')
             })
             .catch(err => console.log(err))
         } else {
@@ -37,7 +37,7 @@ handleRegister = () => {
         axios.post('/api/login', {email, password})
         .then(res => {
             this.props.getUser(res.data)
-            this.props.history.push('/dash')
+            this.props.history.push('/login')
         })
         .catch(err => console.log(err))
     }
