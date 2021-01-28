@@ -1,13 +1,38 @@
 .App {
   text-align: center;
   background-color: #FFF3FA;
-  height: 100vh;
+  height: 100%
 }
-/* #footer {
-  justify-content: flex;
-  display: inline-block;
-} */
-
+.container-box {
+  height: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  align-items: center;
+}
+.footer-container {
+  height: 100px;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 30px;
+    margin: 0 30px 50px 10px;
+}
+.social {
+  width: 200px;
+  display: flex;
+  align-items: right;
+  justify-content: space-between;
+  padding: 50px;
+} 
+.nav-links {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */ 
   color: white; 
   opacity: 1; /* Firefox */ 

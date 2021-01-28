@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express'),
       authCtrl = require('./controllers/authController'),
-     
+      productCtrl = require('./controllers/productController'),
       massive = require('massive'),
       session = require('express-session')
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env;
@@ -32,5 +32,7 @@ app.get('api/logout', authCtrl.logout)
 
 
 //Product Endpoints
+app.get('/api/furniture', productCtrl.getProducts)
+app.delete('/api/cart/:id', productCtrl.removeProduct)
 
 app.listen(SERVER_PORT, () => console.log(`Running on port: ${SERVER_PORT}`))
