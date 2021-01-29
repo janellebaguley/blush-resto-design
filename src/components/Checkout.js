@@ -10,16 +10,16 @@ class Checkout extends Component {
         }
     }
 
-    // removeItem = (id) => {
-    //     axios.delete(`/api/cart/:${id}`)
-    //     .then(() => {
-    //         this.getProducts()
-    //     })
-    //     .catch(err => console.log(err))
-    // }
+    removeItem = (id) => {
+        axios.delete(`/api/cart/:${id}`)
+        .then(() => {
+            this.getProducts()
+        })
+        .catch(err => console.log(err))
+    }
         render(){
         return(
-            <div>
+            <div>cart
                 {/* <button onClick={() => this.removeItem(cart.order_item_id)}>Remove</button> */}
             </div>
         )

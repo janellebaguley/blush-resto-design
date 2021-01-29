@@ -33,15 +33,6 @@
   color: black;
   font-size: 18px;
 }
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */ 
-  color: white; 
-  opacity: 1; /* Firefox */ 
-  } 
-  
-  :-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-  color: white; 
-  } 
-  
-  ::-ms-input-placeholder { /* Microsoft Edge */ 
-  color: white; 
-  }
+button:hover {
+  background-color: #FFF3FA;
+}

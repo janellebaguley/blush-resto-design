@@ -1,7 +1,7 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import App from './App';
-import Auth from './components/Auth';
+import Auth from './components/Auth/Auth';
 import Furniture from './components/Furniture';
 import Designs from './components/Designs';
 import Checkout from './components/Checkout';

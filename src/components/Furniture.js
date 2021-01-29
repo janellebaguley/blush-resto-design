@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {withRouter, Link} from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -23,7 +24,15 @@ class Furniture extends Component{
 
     render(){
     return(
-        <div>furniture!</div>
+     
+        <div>
+          <section>{this.state.furniture.map((i) => (
+            <section key={i}>
+              <button>Add</button>
+            </section>
+          ))}</section>
+          
+        </div>
     )
   }    
 }
