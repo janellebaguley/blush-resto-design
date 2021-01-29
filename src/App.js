@@ -1,10 +1,15 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 import {v4 as randomString} from 'uuid';
 import Dropzone from 'react-dropzone';
 import {GridLoader} from 'react-spinners';
 import Header from './components/Header/Header';
 import routes from './routes';
+import purple from './purple.jpg'
+import white from './white.jpg'
+import IMG_1066 from './IMG_1066.jpg'
+import IMG_1036 from './IMG_1036.jpg'
 import './App.css';
 
 class App extends Component {
@@ -62,11 +67,18 @@ class App extends Component {
       <Header/>
       {routes}
       <section>
-        <section>
-        <img src={url} alt="" width="450px" />
-        </section>
+        <div className='content-box'>
+        <img src={purple} alt='Purple table'/>
         
-        <Dropzone
+        <img src={white} alt='white table'/></div>
+        <div className='content-box'>
+        <img src={IMG_1066} alt='xmas tree'/>
+        <img src={IMG_1036} alt='xmas tree'/>
+        </div>
+        {/* <img src={url} alt="" width="450px" /> */}
+        
+        
+        {/* <Dropzone
     onDropAccepted={this.getSignedRequest}
     accept="image/*"
     multiple={false}>
@@ -89,7 +101,7 @@ class App extends Component {
         <p>Drop files here, or click to select files</p>}
     </div>
     )}
-</Dropzone>
+</Dropzone> */}
 
 
         <footer className = 'footer-container'>

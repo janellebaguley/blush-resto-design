@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {withRouter, Link} from 'react-router-dom';
 import axios from 'axios';
+import white_table from './white_table.jpg'
 
 
 class Furniture extends Component{
@@ -25,7 +26,7 @@ class Furniture extends Component{
     render(){
     return(
       <section>
-      
+        <img src={white_table} alt='white table'/>
         <div>
           <section>{this.state.furniture.map((i) => (
             <section key={i}>

@@ -1,15 +1,21 @@
 .App {
   text-align: center;
   background-color: #FFF3FA;
-  height: 100vh;
+  height: 100%;
 }
 .container-box {
-  height: 300px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
   align-items: center;
+}
+.content-box {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0 60px 40px 0;
 }
 .footer-container {
   height: 100px;

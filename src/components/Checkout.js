@@ -1,5 +1,6 @@
 import {Component} from 'react';
 import axios from 'axios';
+import './Checkout.css'
 
 class Checkout extends Component {
     constructor(props){
@@ -20,6 +21,7 @@ class Checkout extends Component {
         render(){
         return(
             <div>cart
+                
                 {/* <button onClick={() => this.removeItem(cart.order_item_id)}>Remove</button> */}
             </div>
         )
