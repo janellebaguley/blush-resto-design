@@ -62,9 +62,10 @@ class App extends Component {
       <Header/>
       {routes}
       <section>
-        
-        <h1>{url}</h1>
+        <section>
         <img src={url} alt="" width="450px" />
+        </section>
+        
         <Dropzone
     onDropAccepted={this.getSignedRequest}
     accept="image/*"
@@ -77,14 +78,15 @@ class App extends Component {
         height: 80,
         borderWidth: 5,
         marginTop: 25,
-        borderColor: 'gray',
-        borderStyle: 'dashed',
+        // borderColor: 'gray',
+        // borderStyle: 'dashed',
         borderRadius: 5,
         display: 'inline-block',
         fontSize: 17,}}
         {...getRootProps()}>
         <input {...getInputProps()} />
-        {isUploading ? <GridLoader /> : <p>Drop files here, or click to select files</p>}
+        {isUploading ? <GridLoader /> : 
+        <p>Drop files here, or click to select files</p>}
     </div>
     )}
 </Dropzone>

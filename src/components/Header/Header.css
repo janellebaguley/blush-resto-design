@@ -5,17 +5,21 @@
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    padding: 30px;
-    margin: 0 10px;
 }
 .header-container nav {
-    width: 350px;
+    width: 650px;
     display: flex;
-    justify-content: space-between;
-    padding: 30px;
+    justify-content: space-evenly;
+    padding: 60px;
 }
 .nav-links {
     text-decoration: none;
     color: black;
     font-size: 18px;
+}
+img {
+    height: 35%;
+    width: 35%;
+    padding: 20px 0 0 30px;
+    display: flex;
 }

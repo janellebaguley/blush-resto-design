@@ -24,7 +24,8 @@ class Furniture extends Component{
 
     render(){
     return(
-     
+      <section>
+      
         <div>
           <section>{this.state.furniture.map((i) => (
             <section key={i}>
@@ -33,6 +34,7 @@ class Furniture extends Component{
           ))}</section>
           
         </div>
+        </section>
     )
   }    
 }
