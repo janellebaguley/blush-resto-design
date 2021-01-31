@@ -55,7 +55,7 @@ handleRegister = () => {
 
     render(){
         return(
-            <div>
+            <div >
                 <section>
                     {this.state.registerView
                     ? (

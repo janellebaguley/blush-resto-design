@@ -1,0 +1,7 @@
+.display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: wrap;
+    margin: 0 80px 0 30px;
+}

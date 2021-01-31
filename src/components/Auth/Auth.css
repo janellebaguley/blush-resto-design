@@ -1,3 +1,12 @@
+/* .container-box2 {
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 50px 0 700px 0;
+
+} */
 input {
     height: 30px;
     border: none;

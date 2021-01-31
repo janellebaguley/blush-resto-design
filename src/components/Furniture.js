@@ -4,6 +4,7 @@ import axios from 'axios';
 import white_table from './white_table.jpg'
 
 
+
 class Furniture extends Component{
   constructor(props){
     super(props)
@@ -28,11 +29,11 @@ class Furniture extends Component{
       <section>
         <img src={white_table} alt='white table'/>
         <div>
-          <section>{this.state.furniture.map((i) => (
+          {/* <section>{this.state.furniture.map((i) => (
             <section key={i}>
               <button>Add</button>
             </section>
-          ))}</section>
+          ))}</section> */}
           
         </div>
         </section>
