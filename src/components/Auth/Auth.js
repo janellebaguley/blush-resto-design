@@ -3,6 +3,7 @@ import axios from 'axios'
 import {connect} from 'react-redux'
 import {getUser} from '../../redux/reducer';
 import {clearUser} from '../../redux/reducer';
+import './Auth.css';
 
 class Auth extends Component {
     constructor(props){
@@ -93,7 +94,7 @@ handleRegister = () => {
                     <p><h6>Don't have an account?</h6>
                     <button onClick={this.handleToggle}>Register</button></p>
                 </div>)}
-                <section>
+                <section className= 'bottom-margin'>
                 <h3>{this.props.user.email}</h3>
                 <button onClick={this.handleLogout}>Logout</button>
                 </section>

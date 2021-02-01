@@ -16,10 +16,11 @@
     text-decoration: none;
     color: black;
     font-size: 18px;
+    padding: 80px 0 20px 30px;
 }
 img {
     height: 35%;
     width: 35%;
-    padding: 20px 0 0 30px;
+    padding: 50px 0 0 30px;
     display: flex;
 }

@@ -1,9 +1,9 @@
 .App {
   text-align: center;
   background-color: #FFF3FA;
-
+  font-size: 18px;
 }
-.container-box {
+/* .container-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,7 +16,7 @@
   align-items: center;
   justify-content: space-evenly;
   padding: 0 60px 40px 0; 
-}
+} */
 .footer-container {
   height: 100px;
     color: black;
@@ -26,6 +26,7 @@
     box-sizing: border-box;
     padding: 30px;
     margin: 0 30px 50px 10px;
+    font-size: 18px;
 }
 .social {
   width: 200px;
@@ -33,6 +34,7 @@
   align-items: right;
   justify-content: space-between;
   padding: 50px;
+  font-size: 18px;
 } 
 .nav-links {
   text-decoration: none;
@@ -43,8 +45,13 @@ button:hover {
   background-color: #FFF3FA;
 }
 button {
-  width: 80px;
+  width: 95px;
+  font-size: 18px;
 }
-input {
+/* input {
   margin: 0 5px 5px 5px;
-}
+  height: 30px;
+    border: none;
+    color: black;
+    font-size: 20px;
+} */

@@ -4,7 +4,7 @@ import Home from './components/Home/Home';
 import Auth from './components/Auth/Auth';
 import Furniture from './components/Furniture';
 import Designs from './components/Designs/Designs';
-import Checkout from './components/Checkout';
+import Checkout from './components/Checkout/Checkout';
 
 
 export default (

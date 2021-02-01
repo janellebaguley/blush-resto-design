@@ -1,7 +1,10 @@
 .display {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     flex: wrap;
-    margin: 0 80px 0 30px;
+    box-sizing: content-box;
+    height: 55%;
+    width: 55%;
+    margin: 50px 50px 175px 50px;
+    align-items: center;
 }

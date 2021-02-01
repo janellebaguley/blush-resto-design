@@ -3,6 +3,11 @@ import axios from 'axios';
 import {v4 as randomString} from 'uuid';
 import Dropzone from 'react-dropzone';
 import {GridLoader} from 'react-spinners';
+import whiteframe from './whiteframe.jpg'
+import xmas from './xmas.jpg'
+import purple from './purple.jpg'
+import design from './design.jpg'
+import './Home.css'
 
 class Home extends Component {
     constructor(){
@@ -12,6 +17,9 @@ class Home extends Component {
           url: 'http://via.placeholder.com/450x450'
         }
       }
+
+    
+
     getSignedREquest = ([file]) => {
         this.setState({isUploading: true});
         const fileName = `${randomString()}-${file.name.replace(/\s/g, '-')}`;
@@ -55,16 +63,17 @@ class Home extends Component {
       render(){
         const {url, isUploading} = this.state;
         return(
-            <section className = 'home-page'>
-        <div className='content-box'>
-        {/* <img src={purple} alt='Purple table'/>
-        
-        <img src={white} alt='white table'/></div>
-        <div className='content-box'>
-        <img src={IMG_1066} alt='xmas tree'/>
-        <img src={IMG_1036} alt='xmas tree'/> */}
+            <section>
+       <div  className = 'home-page'>
+        <img src={whiteframe} alt='white frame'/>
+        <img src={purple} alt='purple table'/>
         </div>
-        <img src={url} alt="" width="450px" />
+        <div  className = 'home-page'>
+        <img src={design} alt='wall design'/>
+        <img src={xmas} alt='table with sun'/>        
+        </div>
+        
+        {/* <img src={url} alt="" width="450px" /> */}
         
         
         {/* <Dropzone
