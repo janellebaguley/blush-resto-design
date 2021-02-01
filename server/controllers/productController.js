@@ -1,8 +1,8 @@
 module.exports = {
-    getProducts: async(req, res) => {
+    getProducts: (req, res) => {
      const db = req.app.get('db')
-     const furniture = await db.view_furniture([req.session.furniture.id])
-
+     
+        db.products.view_furniture()
      .then(furniture => res.status(200).send(furniture))
         .catch(err => res.status(500).send(err))
     },

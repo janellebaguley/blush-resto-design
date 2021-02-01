@@ -8,7 +8,7 @@ class Furniture extends Component{
       furniture: {}
     }
   }
-  getFurniture (){
+  getFurniture = () => {
     axios.get('/api/furniture')
     .then(furniture => {
       this.setState({furniture: {...this.state.furniture}})
@@ -17,12 +17,17 @@ class Furniture extends Component{
   }
   
   render() {
-    const {furniture} = this.state.furniture
     return(
-      <section>
+      <div>
             <h3>Furniture</h3>
-            {/* <Furniture {props.getFurniture()}/> */}
-        </section>
+            <section>
+             {this.state.furniture[0]?.map((furniture, i) => (
+               <div key={i}>{furniture.product_name}
+               {furniture.image_url}
+               </div>
+             ))}
+            </section>
+        </div>
     )
   }    
 }
