@@ -66,6 +66,7 @@ app.get('api/logout', authCtrl.logout)
 
 //Product Endpoints
 app.get('/api/furniture', productCtrl.getProducts)
+app.post('/api/cart', productCtrl.addToCart)
 app.put('/api/order/:id', productCtrl.updateQuantity)
 app.delete('/api/cart/:id', productCtrl.removeProduct)
 
