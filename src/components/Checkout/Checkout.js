@@ -1,7 +1,6 @@
 import {Component} from 'react';
 import axios from 'axios';
 import './Checkout.css'
-// import xmas from '../Home/xmas.jpg'
 
 class Checkout extends Component {
     constructor(props){
