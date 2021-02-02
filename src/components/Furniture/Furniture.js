@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import white_frame from './white_frame.jpg'
+import Checkout from '../Checkout/Checkout'
 import './Furniture.css';
 
 class Furniture extends Component{
@@ -8,7 +9,8 @@ class Furniture extends Component{
     super()
     this.state = {
       furniture: [],
-      cart: []
+      cart: [],
+      quantity: ''
     }
     this.getFurniture = this.getFurniture.bind(this)
     this.addToCart = this.addToCart.bind(this);
@@ -28,11 +30,13 @@ class Furniture extends Component{
   }
   addToCart = (cart) => {
     axios.post('/api/cart', {furniture: cart})
-    .then(furniture => {
-      this.setState({cart: furniture.data})
+    .then(res => {
+      this.setState({cart: res.data})
     })
     .catch(err => console.log(err))
   }
+
+  
   
   render() {
     console.log(this.state.furniture)
@@ -40,15 +44,23 @@ class Furniture extends Component{
       <div>
             <h3>Furniture</h3>
             {this.state.furniture?.map(furniture => (
-             <div key='{furniture.product_id}' className='container-box'> 
-             <img src={white_frame}/>
-             
-             <section className='container-box'><h4>{furniture.product_name}</h4></section>
-             <section className='container-box'><h4>{furniture.product_price}</h4></section>
-             <section className='container-box'><button onClick ={() => this.addToCart()}>Add</button></section>
+             <div key='{furniture.product_id}' > 
+             <span className='container-box'>
+              <img src={white_frame} className = 'photo' />
+            <ul>
+             {furniture.product_name, '',
+             furniture.product_name, '',
+             furniture.product_description} 
+             <button className = 'button' onClick ={() => this.addToCart()}>Add</button>
+             </ul>
+
+             </span>
              </div>
             )) }
-            
+            <Checkout
+            cart={this.state.cart}
+            addToCart ={this.addToCart}
+            />
         </div>
     )
   }    
