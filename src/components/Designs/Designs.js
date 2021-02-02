@@ -8,6 +8,7 @@ import './Designs.css'
 function Designs (){
     return(
         <section >
+          <h4>Designs</h4>
           <div className = 'display'>
           <img src={IMG_1036} alt='xmas tree'/>
           <img src={IMG_1066} alt='xmas tree'/>
