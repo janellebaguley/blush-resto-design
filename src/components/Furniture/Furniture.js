@@ -9,8 +9,11 @@ class Furniture extends Component{
     super()
     this.state = {
       furniture: [],
-      cart: [],
-      quantity: ''
+      order_item: [],
+      quantity: '',
+      order_id: '',
+      product_id: '',
+      order_total: ''
     }
     this.getFurniture = this.getFurniture.bind(this)
     this.addToCart = this.addToCart.bind(this);
@@ -28,10 +31,16 @@ class Furniture extends Component{
     })
     .catch(err => console.log(err))
   }
-  addToCart = (cart) => {
-    axios.post('/api/cart', {furniture: cart})
+  addToCart = (order_id,
+    product_id, 
+    quantity,
+    order_total) => {
+    axios.post('/api/cart', {order_id,
+      product_id, 
+      quantity,
+      order_total})
     .then(res => {
-      this.setState({cart: res.data})
+      this.setState({order_item: res.data})
     })
     .catch(err => console.log(err))
   }
@@ -39,22 +48,21 @@ class Furniture extends Component{
   
   
   render() {
+    const {order_id, product_id, quantity, order_total} =this.state;
     console.log(this.state.furniture)
     return(
       <div>
             <h3>Furniture</h3>
             {this.state.furniture?.map(furniture => (
              <div key='{furniture.product_id}' > 
-             <span className='container-box'>
+             <article className='container-box'>
               <img src={white_frame} className = 'photo' />
-            <ul>
-             {furniture.product_name, '',
-             furniture.product_name, '',
-             furniture.product_description} 
+            <h4>
+             {furniture.product_name}</h4>
+             <h5>${furniture.product_price}.00</h5>
+             
              <button className = 'button' onClick ={() => this.addToCart()}>Add</button>
-             </ul>
-
-             </span>
+             </article>
              </div>
             )) }
             <Checkout

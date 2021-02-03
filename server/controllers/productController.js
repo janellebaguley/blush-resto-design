@@ -7,11 +7,14 @@ module.exports = {
         .catch(err => res.status(500).send(err))
     },
     addToCart: (req,res) => {
-        const {id, image_url} = req.params;
+        const {order_id,
+            product_id, 
+            quantity,
+            order_total} = req.body
         const db = req.app.get('db');
         
-        db.orders.add_to_cart({id, image_url: furniture.image_url})
-        .then(furniture => res.status(200).send(furniture))
+        db.orders.add_to_cart({order_id2: order_id, product_id2: product_id, quantity2: quantity, order_total2: order_total})
+        .then(order_item => res.status(200).send(order_item))
         .catch(err => res.status(500).send(err))
     },
     updateQuantity: (req, res) => {

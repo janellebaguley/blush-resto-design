@@ -57,7 +57,7 @@ handleRegister = () => {
     render(){
         return(
             <div >
-                <section>
+                <section className= 'bottom-margin'>
                     {this.state.registerView
                     ? (
                         <div>
@@ -92,12 +92,11 @@ handleRegister = () => {
                 <div>
                     <button onClick ={this.handleLogin}>Login</button>
                     <p><h6>Don't have an account?</h6>
-                    <button onClick={this.handleToggle}>Register</button></p>
+                    <button onClick={this.handleToggle} className = 'logout' >Register</button></p>
                 </div>)}
-                <section className= 'bottom-margin'>
+                
                 <h3>{this.props.user.email}</h3>
-                <button onClick={this.handleLogout}>Logout</button>
-                </section>
+                <button className = 'logout' onClick={this.handleLogout}>Logout</button>
                     
                 </section>
             </div>

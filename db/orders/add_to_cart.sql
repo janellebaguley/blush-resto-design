@@ -1,11 +1,13 @@
 insert into order_item(
     order_id,
-    product_id,
+    product_id, 
     quantity,
-    total
+    order_total
 ) values(
-    $1,
-    $2,
-    $3,
-    $4
+    ${order_id2},
+    ${product_id2},
+    ${quantity2},
+    ${order_total2}
 );
+
+select * from order_item;

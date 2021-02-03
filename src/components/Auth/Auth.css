@@ -15,8 +15,12 @@ input {
     font-size: 18px;
 }
 .bottom-margin {
-    margin: 100px 0 130px 0;
+    margin: 50px 0 200px 0;
 }
+.logout {
+    margin: 0;
+}
+
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */ 
     color: darkgray; 
