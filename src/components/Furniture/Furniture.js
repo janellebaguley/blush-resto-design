@@ -12,8 +12,8 @@ class Furniture extends Component{
       order_item: [],
       quantity: '',
       order_id: '',
-      product_id: '',
-      order_total: ''
+            product_id: '',
+            price: ''
     }
     this.getFurniture = this.getFurniture.bind(this)
     this.addToCart = this.addToCart.bind(this);
@@ -34,11 +34,11 @@ class Furniture extends Component{
   addToCart = (order_id,
     product_id, 
     quantity,
-    order_total) => {
+    price) => {
     axios.post('/api/cart', {order_id,
       product_id, 
       quantity,
-      order_total})
+      price})
     .then(res => {
       this.setState({order_item: res.data})
     })
@@ -48,13 +48,16 @@ class Furniture extends Component{
   
   
   render() {
-    const {order_id, product_id, quantity, order_total} =this.state;
+    const {order_id,
+      product_id, 
+      quantity,
+      order_total} =this.state;
     console.log(this.state.furniture)
     return(
       <div>
             <h3>Furniture</h3>
-            {this.state.furniture?.map(furniture => (
-             <div key='{furniture.product_id}' > 
+            {this.state.furniture?.map((furniture, i) => (
+             <div key={i} > 
              <article className='container-box'>
               <img src={white_frame} className = 'photo' />
             <h4>
@@ -66,7 +69,7 @@ class Furniture extends Component{
              </div>
             )) }
             <Checkout
-            cart={this.state.cart}
+            order_item={this.state.order_item}
             addToCart ={this.addToCart}
             />
         </div>

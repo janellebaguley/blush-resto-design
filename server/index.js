@@ -61,7 +61,7 @@ massive({
 //Auth endpoints
 app.post('/api/register', authCtrl.register)
 app.post('/api/login', authCtrl.login)
-app.get('api/logout', authCtrl.logout)
+app.get('/api/logout', authCtrl.logout)
 
 
 //Product Endpoints

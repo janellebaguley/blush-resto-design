@@ -16,34 +16,39 @@ class Auth extends Component {
             registerView: false
         }
     }
-handleInput = (event) => {
-    this.setState({[event.target.name]: event.target.value})
+    handleInput = (event) => {
+        this.setState({[event.target.name]: event.target.value})
     }
-handleToggle = () => {
-    this.setState({registerView: !this.state.registerView})
-}
-handleRegister = () => {
-    const {username, email, password, verPassword} = this.state;
 
-    if(password && password === verPassword){
-    axios.post('api/register', {username, email, password})
-        .then(res => {
-            this.props.getUser(res.data)
-            this.props.history.push('/login')
-            })
-            .catch(err => console.log(err))
+    handleToggle = () => {
+        this.setState({registerView: !this.state.registerView})
+    }
+
+handleRegister = () => {
+        const {username, email, password, verPassword} = this.state
+
+        if (password && password === verPassword) {
+            axios.post('/api/register', {username, email, password})
+                .then(res => {
+                    this.props.getUser(res.data)
+                    this.props.history.push('/')
+                })
+                .catch(err => console.log(err))
         } else {
             alert("Passwords don't match")
         }
     }
+
     handleLogin = () => {
         const {email, password} = this.state
-        axios.post('/api/login', {email, password})
-        .then(res => {
-            this.props.getUser(res.data)
-            this.props.history.push('/login')
-        })
-        .catch(err => console.log(err))
+
+        axios.post('/api/login', { email, password })
+            .then(res => {
+                this.props.getUser(res.data)
+                this.props.history.push('/')
+                
+            })
+            .catch(err => console.log(err))
     }
     handleLogout = () => {
         axios.get('/api/logout')
@@ -85,14 +90,14 @@ handleRegister = () => {
                           placeholder = 'Verify Password'
                           onChange={e => this.handleInput(e)}/>
                           <button onClick={this.handleRegister}>Register</button>
-                          <p>Have an account? <button onClick={this.handleToggle}>Login</button></p>
+                          <>Have an account? <button onClick={this.handleToggle}>Login</button></>
                     </div>
                 )
                 : (
                 <div>
                     <button onClick ={this.handleLogin}>Login</button>
-                    <p><h6>Don't have an account?</h6>
-                    <button onClick={this.handleToggle} className = 'logout' >Register</button></p>
+                    <><h6>Don't have an account?</h6>
+                    <button onClick={this.handleToggle} className = 'logout' >Register</button></>
                 </div>)}
                 
                 <h3>{this.props.user.email}</h3>

@@ -14,13 +14,14 @@
 }
 .nav-links {
     text-decoration: none;
+    box-decoration-break: none;
     color: black;
     font-size: 18px;
     padding: 80px 0 20px 30px;
 }
 img {
-    height: 35%;
-    width: 35%;
-    padding: 50px 0 0 30px;
+    height: 38%;
+    width: 38%;
+    padding: 40px 0 0 30px;
     display: flex;
 }

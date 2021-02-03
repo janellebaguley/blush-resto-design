@@ -21,4 +21,4 @@ create table order_item(order_item_id serial primary key,
 order_id int references orders(order_id),
 product_id int references furniture(product_id),
 quantity integer,
-order_total integer);
+order_item_price integer);

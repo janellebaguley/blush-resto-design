@@ -9,6 +9,8 @@ class Checkout extends Component {
             newQuantity: ''
         }
     }
+
+    
     handleInput = (val) =>{
         this.setState({quantity: val})
     }
@@ -40,7 +42,14 @@ class Checkout extends Component {
             <section className='checkout'>
                 <div>Cart</div>
                 <section>
-                    
+                    {/* {this.props.order_item?.filter(element => element.furniture).map((furniture, i) => (
+                        <section key ={i}>
+                            <img src='' className = 'photo' />
+                     <h4>
+                         {furniture.product_name}</h4>
+                    <h5>${furniture.product_price}.00</h5>
+                        </section>
+                    ))} */}
                 </section>
                
                 <input
