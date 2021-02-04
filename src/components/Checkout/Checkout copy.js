@@ -37,7 +37,7 @@ const Checkout = (props) => {
     // }
 
         return(
-            <div className='checkout'>
+            <section className='checkout'>
                 <div>Cart</div>
                 <section>
                    <button onClick={props.clearCart}>Clear Cart</button>
@@ -47,15 +47,29 @@ const Checkout = (props) => {
                         null) : (
                             props.cart.map(element => {
                                 return(
-                                <UpdateCart
+                                <Update 
                                     key={element.id}
                                     orderItem={element}/>
                             )
                         })  
                     )}
                     </section>
-                    
-                </div>       
+                {/* </section> */}
+                    {/* {this.props.order_item?.filter(element => element.furniture).map((furniture, i) => (
+                        <section key ={i}>
+                            <img src='' className = 'photo' />
+                     <h4>
+                         {furniture.product_name}</h4>
+                    <h5>${furniture.product_price}.00</h5>
+                        </section>
+                    ))} */}
+                {/* </section> */}
+               
+                {/* // <input
+                // className = 'input-box' value ={this.state.newQuantity} onChange={e => this.handleInput(e.target.value)}/>
+                // <button onClick ={() => this.handleEdit()}>Edit</button>
+                // <button onClick ={() => this.removeItem()}>Delete</button>    */}
+                </section>       
         )
     }
 
