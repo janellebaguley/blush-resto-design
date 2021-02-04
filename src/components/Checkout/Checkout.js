@@ -1,47 +1,48 @@
-import {Component} from 'react';
+import React, {useEffect} from 'react';
+import {connect} from 'react-redux'
+import {updateCart, clearCart, getCart} from '../../redux/cartReducer'
 import axios from 'axios';
 import './Checkout.css'
 
-class Checkout extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            newQuantity: ''
-        }
-    }
+const Checkout = (props) => {
+  useEffect(() => {
+      props.getCart()
+  }, [props.isLoggedIn])
 
     
-    handleInput = (val) =>{
-        this.setState({quantity: val})
-    }
+    // handleInput = (val) =>{
+    //     this.setState({quantity: val})
+    // }
 
-    handleEdit = (id) => {
-        this.props.updateQuantity(id, this.state.newQuantity)
-        this.setState({quantity: ''})
-    }
-    updateQuantity = (id, newQuantity) => {
+    // handleEdit = (id) => {
+    //     this.props.updateQuantity(id, this.state.newQuantity)
+    //     this.setState({quantity: ''})
+    // }
+    // updateQuantity = (id, newQuantity) => {
 
-        axios.put(`/api/cart/${id}`, {quantity: newQuantity})
-      .then(res => {
-        this.setState({cart: res.data})
-      })
-      .catch(err => console.log(err))
-      }
+    //     axios.put(`/api/cart/${id}`, {quantity: newQuantity})
+    //   .then(res => {
+    //     this.setState({cart: res.data})
+    //   })
+    //   .catch(err => console.log(err))
+    //   }
     
-      removeItem = (id) => {
-        axios.delete(`/api/cart/:${id}`)
-        .then(res => {
-            this.setState({cart: res.data})
-        })
-        .catch(err => console.log(err))
-    }
-    
-        render(){
-            // console.log(this.props.cart)
+    //   removeItem = (id) => {
+    //     axios.delete(`/api/cart/:${id}`)
+    //     .then(res => {
+    //         this.setState({cart: res.data})
+    //     })
+    //     .catch(err => console.log(err))
+    // }
+
         return(
             <section className='checkout'>
                 <div>Cart</div>
                 <section>
+
+                    <button onClick={props.clearCart}>Clear Cart</button>
+
+                    
                     {/* {this.props.order_item?.filter(element => element.furniture).map((furniture, i) => (
                         <section key ={i}>
                             <img src='' className = 'photo' />
@@ -52,13 +53,19 @@ class Checkout extends Component {
                     ))} */}
                 </section>
                
-                <input
+                {/* <input
                 className = 'input-box' value ={this.state.newQuantity} onChange={e => this.handleInput(e.target.value)}/>
                 <button onClick ={() => this.handleEdit()}>Edit</button>
-                <button onClick ={() => this.removeItem()}>Delete</button>
+                <button onClick ={() => this.removeItem()}>Delete</button> */}
             
             </section>
         )
     }
+
+function mapStateToProps(reduxState){
+    return {
+        ...reduxState.cart,
+        ...reduxState.user
+    }
 }
-export default Checkout;
+export default connect(mapStateToProps, {updateCart, clearCart, getCart})(Checkout);
