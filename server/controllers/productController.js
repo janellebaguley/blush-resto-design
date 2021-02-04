@@ -6,13 +6,13 @@ module.exports = {
      .then(furniture => res.status(200).send(furniture))
         .catch(err => res.status(500).send(err))
     },
-    addToCart: (req,res) => {
-        const {order_id, product, quantity,
-            price} = req.body
+    addToCart: async(req,res) => {
+        const {order_id, furnitureId, quantity} = req.body
+        console.log(order_id, furnitureId, quantity)
         const db = req.app.get('db');
         
-        db.orders.add_to_cart(order_id, product, quantity, price)
-        .then(res.sendStatus(200))
+       await db.orders.add_to_cart(order_id, furnitureId, quantity)
+        .then(res.status(200))
         .catch(err => res.status(500).send(err))
     },
     updateQuantity: (req, res) => {

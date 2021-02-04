@@ -39,5 +39,13 @@ module.exports = {
     logout: (req, res) => {
         req.session.destroy()
         res.sendStatus(200)
+    },
+    getSessionUser: (req, res) => {
+        const {blush_user} =req.session
+        if(blush_user){
+            res.send(blush_user)
+        } else {
+            res.send('')
+        }
     }
 }
