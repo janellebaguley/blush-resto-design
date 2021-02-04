@@ -42,14 +42,15 @@ handleRegister = () => {
     handleLogin = () => {
         const {email, password} = this.state
 
-        axios.post('/api/login', { email, password })
+        axios.post('/api/login', {email, password})
             .then(res => {
                 this.props.getUser(res.data)
                 this.props.history.push('/')
-                
+
             })
             .catch(err => console.log(err))
     }
+    
     handleLogout = () => {
         axios.get('/api/logout')
             .then(() => {

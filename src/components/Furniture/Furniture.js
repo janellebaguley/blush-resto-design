@@ -40,7 +40,6 @@ handleGetSessionUser = () => {
 
   handleToggle = () => {
     this.setState({isLoggedIn: !this.state.isLoggedIn})
-    this.props.history.push('/login')
   }
 
   addToCart = (furnitureId) => {

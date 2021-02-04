@@ -22,3 +22,10 @@ order_id int references orders(order_id),
 product_id int references furniture(product_id),
 quantity integer,
 order_item_price integer);
+
+alter table order_item add user_id int references blush_user(user_id)
+
+-- CREATE TABLE order_items (,
+--     order_id integer REFERENCES orders ON DELETE CASCADE,
+--     quantity integer,
+-- );

@@ -8,6 +8,7 @@ const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET, S3_BUCKET, AWS_ACCESS_KEY
 
 const app = express();
 const aws = require('aws-sdk');
+const { default: axios } = require('axios');
 
 app.get('/api/signs3', (req, res) => {
   aws.config = {
@@ -67,8 +68,11 @@ app.get('/api/session-user', authCtrl.getSessionUser)
 
 //Product Endpoints
 app.get('/api/furniture', productCtrl.getProducts)
+app.get('/api/cart', productCtrl.getCart)
 app.post('/api/cart', productCtrl.addToCart)
+
 app.put('/api/cart/:id', productCtrl.updateQuantity)
 app.delete('/api/cart/:id', productCtrl.removeProduct)
+app.delete('/api/cart/clear', productCtrl.clearCart)
 
 app.listen(SERVER_PORT, () => console.log(`Running on port: ${SERVER_PORT}`))
