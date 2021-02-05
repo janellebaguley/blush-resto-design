@@ -83,7 +83,7 @@ handleGetSessionUser = () => {
     // console.log(this.state.furniture)
     return(
       <div>
-            <h3>Furniture</h3>
+            {/* <h3>Furniture</h3> */}
             {this.state.furniture?.map((furniture, i) => (
               <div key={i} className='container-box'> 
               <img src={white_frame} className = 'photo' />

@@ -10,6 +10,7 @@ function App () {
     <div className="App">
       <Header/>
       {routes}
+      
         <footer className = 'footer-container'>
         <h6>Phone: 801-698-9383</h6>
         <h6>Email: </h6>

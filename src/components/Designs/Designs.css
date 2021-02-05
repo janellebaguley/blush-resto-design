@@ -5,6 +5,21 @@
     box-sizing: content-box;
     height: 55%;
     width: 50%;
-    margin: 0px 50px 160px 50px;
+    margin: 0px 50px 0px 50px;
     align-items: center;
+}
+@media(max-width: 768px){
+    .display {
+        margin: 0 0 0 20px;
+        align-items: center;
+        height: 14rem;
+        width: 14rem;
+    }
+}
+@media(max-width: 570px){
+    .display {
+        height: 10rem;
+        width: 10rem;
+        margin: 0;
+    }
 }
