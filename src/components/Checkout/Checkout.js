@@ -1,51 +1,54 @@
-import React, {useEffect} from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import {updateCart, clearCart, getCart} from '../../redux/cartReducer'
 import axios from 'axios';
 import UpdateCart from './UpdateCart'
 import './Checkout.css'
 
-const Checkout = (props) => {
-  useEffect(() => {
-      props.getCart()
-  }, [props.isLoggedIn])
+class Checkout extends Component {
+        constructor(){
+            super()
+            this.state = {
+
+            }
+        }
 
     
-    // handleInput = (val) =>{
-    //     this.setState({quantity: val})
-    // }
+    handleInput = (val) =>{
+        this.setState({quantity: val})
+    }
 
-    // handleEdit = (id) => {
-    //     this.props.updateQuantity(id, this.state.newQuantity)
-    //     this.setState({quantity: ''})
-    // }
-    // updateQuantity = (id, newQuantity) => {
+    handleEdit = (id) => {
+        this.props.updateQuantity(id, this.state.newQuantity)
+        this.setState({quantity: ''})
+    }
+    updateQuantity = (id, newQuantity) => {
 
-    //     axios.put(`/api/cart/${id}`, {quantity: newQuantity})
-    //   .then(res => {
-    //     this.setState({cart: res.data})
-    //   })
-    //   .catch(err => console.log(err))
-    //   }
+        axios.put(`/api/cart/${id}`, {quantity: newQuantity})
+      .then(res => {
+        this.setState({cart: res.data})
+      })
+      .catch(err => console.log(err))
+      }
     
-    //   removeItem = (id) => {
-    //     axios.delete(`/api/cart/:${id}`)
-    //     .then(res => {
-    //         this.setState({cart: res.data})
-    //     })
-    //     .catch(err => console.log(err))
-    // }
-
+      removeItem = (id) => {
+        axios.delete(`/api/cart/:${id}`)
+        .then(res => {
+            this.setState({cart: res.data})
+        })
+        .catch(err => console.log(err))
+    }
+        render(){
         return(
             <div className='checkout'>
                 <div>Cart</div>
                 <section>
-                   <button onClick={props.clearCart}>Clear Cart</button>
+                   <button onClick={this.props.clearCart}>Clear</button>
                 </section>
                 <section>
-                    {props.cartIsLoading ? (
+                    {this.props.cartIsLoading ? (
                         null) : (
-                            props.cart.map(element => {
+                            this.props.cart.map(element => {
                                 return(
                                 <UpdateCart
                                     key={element.id}
@@ -58,8 +61,8 @@ const Checkout = (props) => {
                 </div>       
         )
     }
-
-function mapStateToProps(reduxState){
+}
+const mapStateToProps = (reduxState) => {
     return {
         ...reduxState.cart,
         ...reduxState.user

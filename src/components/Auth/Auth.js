@@ -51,7 +51,8 @@ handleRegister = () => {
             .catch(err => console.log(err))
     }
     handleLogout = () => {
-        axios.get('/api/logout')
+        const {email, password} = this.state
+        axios.get('/api/logout', email, password)
             .then(() => {
                 this.props.clearUser();
                 this.props.history.push('/')
@@ -100,8 +101,8 @@ handleRegister = () => {
                     <button onClick={this.handleToggle} className = 'logout' >Register</button></>
                 </div>)}
                 
-                {/* <h3>{this.props.user.email}</h3> */}
-                {/* <button className = 'logout' onClick={this.handleLogout}>Logout</button> */}
+                <h3>{this.state.email}</h3> 
+                <button className = 'logout' onClick={this.handleLogout}>Logout</button>
                     
                 </section>
             </div>

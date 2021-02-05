@@ -17,11 +17,11 @@ create table orders(order_id serial primary key,
 user_id int references blush_user(user_id),
 order_total integer);	
 
-create table order_item(order_item_id serial primary key, 
-order_id int references orders(order_id),
-product_id int references furniture(product_id),
-quantity integer,
-order_item_price integer);
+-- create table order_item(order_item_id serial primary key, 
+-- order_id int references orders(order_id),
+-- product_id int references furniture(product_id),
+-- quantity integer,
+-- price integer)
 
 alter table order_item add user_id int references blush_user(user_id)
 

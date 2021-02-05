@@ -4,8 +4,9 @@ module.exports = {
     register: async(req, res) => {
         const {username, email, password} = req.body
         const db = req.app.get('db')
+        const {session} = req
 
-        const [foundUser] = await db.users.check_user({ email })
+        const [foundUser] = await db.users.check_user({email})
         if(foundUser){
             return res.status(400).send('Email already in use')
         }
@@ -14,9 +15,13 @@ module.exports = {
         const hash = bcrypt.hashSync(password, salt)
 
         const [newUser] = await db.users.register_user({username, email, hash})
-
-        req.session.user = newUser
-        res.status(201).send(req.session.user)
+        newUser = newUser[0]
+        delete newUser.password
+        let userCart = await db.user.create_user_cart(newUser.user_id)
+        userCart = userCart [0]
+        newUser = {...newUser, ...userCart}
+        session.user = newUser
+        res.status(201).send(session.user)
     },
     login: async(req, res) => {
         const {email, password} = req.body
@@ -41,9 +46,9 @@ module.exports = {
         res.sendStatus(200)
     },
     getSessionUser: (req, res) => {
-        const {blush_user} =req.session
-        if(blush_user){
-            res.send(blush_user)
+        const {user} =req.session
+        if(user){
+            res.send(user)
         } else {
             res.send('')
         }

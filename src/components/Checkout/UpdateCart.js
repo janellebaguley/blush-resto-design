@@ -15,9 +15,9 @@ const UpdateCart = (props) => {
     // }
 
     // decreaseQuantity = () => {
-    //     const body = {product_id: props.orderItem.product_id, quantity: (props.orderItem. quantity -1 )}
+    //     // const body = {product_id: props.order_item.product_id, quantity: (props.order_item. quantity -1 )}
 
-    //     axios.put('/api/cart', body)
+    //     axios.put('/api/cart', quantity)
     //     .then(res => {
     //         props.updateCart(res.data)
     //     })
@@ -51,10 +51,10 @@ return (
     )   
 }
 
-// mapStateToProps = (reduxState) => {
-//     return {
-//         ...reduxState.cart
-//     }
-// }
+const mapStateToProps = (reduxState) => {
+    return {
+        ...reduxState.cart
+    }
+}
 
 export default connect(null, {updateCart})(withRouter(UpdateCart))

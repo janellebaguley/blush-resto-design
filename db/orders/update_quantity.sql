@@ -1,5 +1,3 @@
-update order_item set quantity = $1
-where order_item_id = $2;
+update order_item set (quantity, price) = ($1, $2)
+where order_item_id = $3;
 
-select order_item_id, product_id, quantity, order_item_price
-where order_item_id = $2;
