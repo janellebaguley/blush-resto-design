@@ -71,8 +71,8 @@ app.get('/api/furniture', productCtrl.getProducts)
 app.get('/api/cart', productCtrl.getCart)
 app.post('/api/cart', productCtrl.addToCart)
 
-app.put('/api/cart/:id', productCtrl.updateQuantity)
-app.delete('/api/cart/:id', productCtrl.removeProduct)
+app.put('/api/item-quantity/:id', productCtrl.updateQuantity)
+app.delete('/api/cart-item/:id', productCtrl.removeProduct)
 
 
 app.listen(SERVER_PORT, () => console.log(`Running on port: ${SERVER_PORT}`))
