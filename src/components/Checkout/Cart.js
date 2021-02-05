@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-// import {connect} from 'react-redux'
-// import {updateCart, clearCart, getCart} from '../../redux/cartReducer'
 import axios from 'axios';
 import UpdateCart from './UpdateCart'
+import Checkout from './Checkout'
 import './Checkout.css'
 
 class Checkout extends Component {
@@ -11,7 +10,6 @@ class Checkout extends Component {
             this.state = {
             user: {},
             orderItems: [],
-            furniture: [],
             total: 0.00
             }
         }
@@ -44,19 +42,20 @@ class Checkout extends Component {
             })
         return(
             <div className='checkout'>
-                <div>Cart</div>
                 <section>
                    <h6>Total: ${this.state.total}</h6>
-                </section>
-                    
-                </div>       
+                   <div onClick={this.handleCompleteOrder}>
+                        <Checkout
+                        total ={Math.round(this.state.total * 100)}
+                        getUser ={this.handleGetUser}
+                        order= {this.state.user.order_id}
+                        user={this.setState.user.user_id}/>
+                   </div>
+                   {mappedCart}
+                </section>    
+             </div>       
         )
     }
 }
-// const mapStateToProps = (reduxState) => {
-//     return {
-//         ...reduxState.cart,
-//         ...reduxState.user
-//     }
-// }
-export default Checkout;
+
+export default Cart;

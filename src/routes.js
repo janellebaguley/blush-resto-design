@@ -4,7 +4,7 @@ import Home from './components/Home/Home';
 import Auth from './components/Auth/Auth';
 import Furniture from './components/Furniture/Furniture';
 import Designs from './components/Designs/Designs';
-import Checkout from './components/Checkout/Checkout';
+import Cart from './components/Checkout/Cart';
 
 
 export default (
@@ -13,6 +13,6 @@ export default (
         <Route path= '/furniture' component={Furniture}/>
         <Route path= '/designs' component={Designs}/>
         <Route path= '/login' component={Auth}/>
-        <Route path= '/checkout' component={Checkout}/>
+        <Route path= '/cart' component={Cart}/>
     </Switch>
 )
