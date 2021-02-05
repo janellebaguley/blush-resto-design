@@ -1,5 +1,6 @@
 import {Component} from 'react';
 import {Link} from 'react-router-dom'
+import big_design from './big_design.jpg'
 import whiteframe from './whiteframe.jpg'
 import xmas from './xmas.jpg'
 import purple from './purple.jpg'
@@ -16,7 +17,11 @@ class Home extends Component {
       render(){
         return(
             <section>
-       <div  >
+              <div>
+            <img src={big_design}
+            alt='' className = 'big-photo'/>
+              </div>
+             <div  >
         <Link to = '/furniture' className = 'home-page'><img src={whiteframe} alt='white frame'/>
         
         <img src={purple} alt='purple table'/>

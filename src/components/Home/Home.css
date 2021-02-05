@@ -3,3 +3,8 @@
     justify-content: space-evenly;
     align-items: center;
 }
+.big-photo {
+    height: 35em;
+    width: 82rem;
+    margin: 0px 50px 10px 30px;
+}

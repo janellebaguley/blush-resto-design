@@ -4,7 +4,7 @@ import UpdateCart from './UpdateCart'
 import Checkout from './Checkout'
 import './Checkout.css'
 
-class Checkout extends Component {
+class Cart extends Component {
         constructor(){
             super()
             this.state = {

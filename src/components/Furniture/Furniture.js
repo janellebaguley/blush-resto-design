@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom'
 import axios from 'axios';
 import white_frame from './white_frame.jpg'
-import Checkout from '../Checkout/Checkout'
+import Auth from '../Auth/Auth'
+import FurnitureDisplay from './FurnitureDisplay'
 import './Furniture.css';
 
 class Furniture extends Component{
@@ -9,17 +11,13 @@ class Furniture extends Component{
     super()
     this.state = {
       furniture: [],
-      blush_user: {},
-      isLoggedIn: false
+      user: {},
+      quantity: 1,
+      registerView: false
     }
-    this.getFurniture = this.getFurniture.bind(this)
-    this.addToCart = this.addToCart.bind(this);
+    
   }
   componentDidMount(){
-    axios.get('/api/furniture')
-    .then(res => {
-    this.setState({furniture: res.data})
-  })
   this.handleGetSessionUser()
 }
 
@@ -32,22 +30,23 @@ handleGetSessionUser = () => {
 
   getFurniture = () => {
     axios.get('/api/furniture')
-    .then(furniture => {
-      this.setState({furniture: {...this.state.furniture}})
+    .then(res => {
+      this.setState({furniture: res.data})
     })
     .catch(err => console.log(err))
   }
 
   handleToggle = () => {
-    this.setState({isLoggedIn: !this.state.isLoggedIn})
-  }
+    this.setState({registerView: !this.state.registerView})
+    }
 
-  addToCart = (furnitureId) => {
+  addToCart = (furnitureId, price) => {
     // console.log(this.state.order_id)
-    if(this.state.blush_user.user_id){
+    if(this.state.user.user_id){
       const orderItem= 
-    {order_id: this.state.blush_user.order_id, furnitureId, 
-    quantity: 1}
+      {order_id: this.state.user.order_id, furniture: furnitureId, 
+      quantity: 1,
+      price}
 
     axios.post('/api/cart', orderItem)
     .then(res => {
@@ -57,10 +56,20 @@ handleGetSessionUser = () => {
     this.handleToggle()
   }
 }
+  handleLogin = (data) => {
+    this.setState({user: data})
+  }
 
   render() {
-  
-    console.log(this.state.furniture)
+    const mappedFurniture = this.state.furniture.map((furniture, i) => {
+      return (
+        <FurnitureDisplay
+          key={i}
+          furniture={furniture}
+          addToCart={this.addToCart}/>
+      )
+    })
+    // console.log(this.state.furniture)
     return(
       <div>
             <h3>Furniture</h3>
@@ -76,10 +85,17 @@ handleGetSessionUser = () => {
              </article>
              </div>
             )) }
-            {/* <Checkout
-            order_item={this.state.order_item} */}
-            {/* // addToCart ={this.addToCart} */}
-            
+            <section>
+              {mappedFurniture}
+            </section>
+            <div>
+              {this.state.registerView
+              ?(<Auth
+                  user ={this.state.user}
+                  login ={this.handleLogin}
+                  toggle = {this.handleToggle}/>)
+                :(null)}
+            </div>
         </div>
     )
   }    

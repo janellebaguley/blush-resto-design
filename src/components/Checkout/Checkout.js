@@ -3,7 +3,7 @@ import axios from 'axios';
 
 class Checkout extends Component {
     handleCheckout = () => {
-        axios.post('/api', {amount: Math.round(this.props.total), order_id: this.props.orders, user_id: this.props.user, date: today})
+        axios.post('/api', {amount: Math.round(this.props.total), order_id: this.props.orders, user_id: this.props.user})
         .then(res => {
             this.props.getUser()
         })
