@@ -18,6 +18,7 @@ class Furniture extends Component{
     
   }
   componentDidMount(){
+  this.getFurniture()
   this.handleGetSessionUser()
 }
 
@@ -58,6 +59,16 @@ handleGetSessionUser = () => {
 }
   handleLogin = (data) => {
     this.setState({user: data})
+  }
+  handleQuantityInc = () => {
+    this.setState({
+      quantity: 2
+    })
+  }
+  handleQuantityDec = () => {
+    this.setState({
+      quantity: 1
+    })
   }
 
   render() {
