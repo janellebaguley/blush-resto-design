@@ -85,15 +85,13 @@ handleGetSessionUser = () => {
       <div>
             <h3>Furniture</h3>
             {this.state.furniture?.map((furniture, i) => (
-              <div key={i} > 
-             <article className='container-box'>
+              <div key={i} className='container-box'> 
               <img src={white_frame} className = 'photo' />
             <h4>
              {furniture.product_name}</h4>
              <h5>${furniture.product_price}.00</h5>
 
              <button className = 'button' onClick ={() => this.addToCart(furniture.product_id)}>Add</button>
-             </article>
              </div>
             )) }
             <section>

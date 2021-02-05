@@ -4,8 +4,30 @@
     align-items: center;
     margin: 0 30px 0 0;
 }
+
 .big-photo {
-    height: 35em;
-    width: 90vw;
+    height: auto;
+    width: 90%;
     margin: 0px 50px 10px 30px;
+}
+.container {
+    position: relative;
+    
+}
+.container .btn {
+    position: absolute;
+    top: 80%;
+    left: 80%;
+    transform: translate(-80%, -80%);
+    -ms-transform: translate(-80%, -80%);
+    background-color: white;
+    font-size: 36px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 190px;
+    color: black;
+}
+.container .btn:hover {
+    background-color: #FFF3FA;
 }
