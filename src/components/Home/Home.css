@@ -6,7 +6,7 @@
 }
 
 .big-photo {
-    height: auto;
+    height: calc(90vh - 125px);
     width: 90%;
     margin: 0px 50px 10px 30px;
 }
@@ -24,7 +24,7 @@
     font-size: 36px;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 6px;
     width: 190px;
     color: black;
 }

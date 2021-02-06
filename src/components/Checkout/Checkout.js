@@ -11,7 +11,8 @@ class Checkout extends Component {
     render () {
         return(
             <div>
-                <h1>Checkout</h1>
+                {this.props.total}
+                <button onClick={this.handleCheckout}>Checkout</button>
             </div>
         )
     }

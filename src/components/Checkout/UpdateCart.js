@@ -37,7 +37,9 @@ class UpdateCart extends Component {
         <section>
             <p>${this.props.orders.price}</p>
         </section>
+        
         <div>
+            <button onClick={this.handleDeleteItem}>Delete</button>
             <button onClick={this.handleQuantityDec}> 1 </button>
             <button onClick={this.handleQuantityInc}> 2 </button>
         </div>

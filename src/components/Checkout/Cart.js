@@ -10,12 +10,22 @@ class Cart extends Component {
             this.state = {
             user: {},
             orderItems: [],
+            furniture: [],
             total: 0.00
             }
         }
 
     componentDidMount(){
             this.handleGetUser()
+            this.handleGetFurniture()
+    }
+
+    handleGetUser = () => {
+        axios.get('/api/session-user')
+        .then(res => {
+            this.setState({user: res.data})
+            this.handleGetUserCart()
+        })
     }
 
     handleGetUserCart = async() => {
@@ -29,6 +39,13 @@ class Cart extends Component {
         this.setState({total: Math.round(sum * 100) / 100})
     }
     
+    handleGetFurniture = () => {
+        axios.get('/api/furniture')
+    .then(res => {
+      this.setState({furniture: res.data})
+    })
+    .catch(err => console.log(err))
+    }
     
     
         render(){

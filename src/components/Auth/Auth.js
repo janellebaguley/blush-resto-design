@@ -96,13 +96,13 @@ handleRegister = () => {
                 )
                 : (
                 <div>
-                    <button className = 'button' onClick ={this.handleLogin}>Login</button>
+                    <button  onClick ={this.handleLogin}>Login</button>
                     <><h6>Don't have an account?</h6>
                     <button onClick={this.handleToggle} className = 'logout, btn' >Register</button></>
                 </div>)}
                 
                 <h3>{this.state.email}</h3> 
-                <button className = 'logout, btn' onClick={this.handleLogout}>Logout</button>
+                <button  onClick={this.handleLogout}>Logout</button>
                     
                 </section>
             </div>
