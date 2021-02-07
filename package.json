@@ -13,6 +13,7 @@
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "eslint": "^7.19.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "massive": "^6.6.4",
@@ -54,5 +55,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-plugin-react": "^7.22.0"
   }
 }
