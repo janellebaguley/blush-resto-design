@@ -1,106 +1,111 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom'
 import axios from 'axios';
-import {v4 as randomString} from 'uuid';
-import Dropzone from 'react-dropzone';
-import {GridLoader} from 'react-spinners';
-// import white_table from './white_table.jpg'
-
-
+import white_frame from './white_frame.jpg'
+import Auth from '../Auth/Auth'
+import FurnitureDisplay from './FurnitureDisplay'
+import './Furniture.css';
 
 class Furniture extends Component{
   constructor(){
     super()
     this.state = {
-      isUploading: false,
-      url: 'http://via.placeholder.com/450x450'
+      furniture: [],
+      user: {},
+      quantity: 1,
+      registerView: false
     }
+    
   }
-  getSignedRequest = ([file]) => {
-    this.setState({ isUploading: true });
-    // We are creating a file name that consists of a random string, and the name of the file that was just uploaded with the spaces removed and hyphens inserted instead. This is done using the .replace function with a specific regular expression. This will ensure that each file uploaded has a unique name which will prevent files from overwriting other files due to duplicate names.
-    const fileName = `${randomString()}-${file.name.replace(/\s/g, '-')}`;
+  componentDidMount(){
+  this.getFurniture()
+  this.handleGetSessionUser()
+}
 
-    // We will now send a request to our server to get a "signed url" from Amazon. We are essentially letting AWS know that we are going to upload a file soon. We are only sending the file-name and file-type as strings. We are not sending the file itself at this point.
-    axios
-      .get('/api/signs3', {
-        params: {
-          'file-name': fileName,
-          'file-type': file.type,
-        },
-      })
-      .then(response => {
-        const { signedRequest, url } = response.data;
-        this.uploadFile(file, signedRequest, url);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
+handleGetSessionUser = () => {
+  axios.get('/api/session-user')
+  .then(res => {
+    this.setState({user: res.data})
+  })
+}
 
-  uploadFile = (file, signedRequest, url) => {
-    const options = {
-      headers: {
-        'Content-Type': file.type,
-      },
-    };
+  getFurniture = () => {
+    axios.get('/api/furniture')
+    .then(res => {
+      this.setState({furniture: res.data})
+    })
+    .catch(err => console.log(err))
+  }
 
-    axios
-      .put(signedRequest, file, options)
-      .then(response => {
-        this.setState({ isUploading: false, url });
-        // THEN DO SOMETHING WITH THE URL. SEND TO DB USING POST REQUEST OR SOMETHING
-      })
-      .catch(err => {
-        this.setState({
-          isUploading: false,
-        });
-        if (err.response.status === 403) {
-          alert(
-            `Your request for a signed URL failed with a status 403. Double check the CORS configuration and bucket policy in the README. You also will want to double check your AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY in your .env and ensure that they are the same as the ones that you created in the IAM dashboard. You may need to generate new keys\n${
-              err.stack
-            }`
-          );
-        } else {
-          alert(`ERROR: ${err.status}\n ${err.stack}`);
-        }
-      });
-  };
+  handleToggle = () => {
+    this.setState({registerView: !this.state.registerView})
+    }
+
+  addToCart = (furnitureId, price) => {
+    // console.log(this.state.order_id)
+    if(this.state.user.user_id){
+      const orderItem= 
+      {order_id: this.state.user.order_id, furniture: furnitureId, 
+      quantity: 1,
+      price}
+
+    axios.post('/api/cart', orderItem)
+    .then(res => {
+      alert('Item added to cart')
+    })
+  } else {
+    this.handleToggle()
+  }
+}
+  handleLogin = (data) => {
+    this.setState({user: data})
+  }
+  handleQuantityInc = () => {
+    this.setState({
+      quantity: 2
+    })
+  }
+  handleQuantityDec = () => {
+    this.setState({
+      quantity: 1
+    })
+  }
 
   render() {
-    const { url, isUploading } = this.state;
-
+    const mappedFurniture = this.state.furniture.map((furniture, i) => {
+      return (
+        <FurnitureDisplay
+          key={i}
+          furniture={furniture}
+          addToCart={this.addToCart}/>
+      )
+    })
+    // console.log(this.state.furniture)
     return(
-      <section>
-            <h3>Furniture</h3>
-            <h1>{url}</h1>
-            <img src={url} alt="" width="450px" />
-        
-        
-        <Dropzone
-    onDropAccepted={this.getSignedRequest}
-    accept="image/*"
-    multiple={false}>
-    {({getRootProps, getInputProps}) => (
-    <div 
-        style = {{
-        position: 'relative',
-        width: 160,
-        height: 80,
-        borderWidth: 5,
-        marginTop: 25,
-        // borderColor: 'gray',
-        // borderStyle: 'dashed',
-        borderRadius: 5,
-        display: 'inline-block',
-        fontSize: 17,}}
-        {...getRootProps()}>
-        <input {...getInputProps()} />
-        {isUploading ? <GridLoader /> : 
-        <p>Drop files here, or click to select files</p>}
-    </div>
-    )}
-</Dropzone>    
-        </section>
+      <div>
+            {/* <h3>Furniture</h3> */}
+            {this.state.furniture?.map((furniture, i) => (
+              <div key={i} className='container-box'> 
+              <img src={white_frame} className = 'photo' />
+            <h4>
+             {furniture.product_name}</h4>
+             <h5>${furniture.product_price}.00</h5>
+
+             <button className = 'button' onClick ={() => this.addToCart(furniture.product_id)}>Add</button>
+             </div>
+            )) }
+            <section>
+              {mappedFurniture}
+            </section>
+            <div>
+              {this.state.registerView
+              ?(<Auth
+                  user ={this.state.user}
+                  login ={this.handleLogin}
+                  toggle = {this.handleToggle}/>)
+                :(null)}
+            </div>
+        </div>
     )
   }    
 }

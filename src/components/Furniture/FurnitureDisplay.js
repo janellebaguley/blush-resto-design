@@ -10,10 +10,10 @@ class FurnitureDisplay extends Component {
         return(
             <div>
                 <section>
-                    {this.props.furniture.product_description}
+                    {/* {this.props.furniture.product_description} */}
                 </section>
                 <div>
-                    <button onClick={this.addToCart}>Add</button>
+                    {/* <button onClick={this.addToCart}>Add</button> */}
                 </div>
             </div>
         )
