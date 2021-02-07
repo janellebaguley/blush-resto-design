@@ -9,7 +9,6 @@ class Auth extends Component {
     constructor(props){
         super(props)
         this.state = {
-            username: '',
             email: '',
             password: '',
             verPassword: '',
@@ -25,10 +24,10 @@ class Auth extends Component {
     }
 
 handleRegister = () => {
-        const {username, email, password, verPassword} = this.state
+        const {email, password, verPassword} = this.state
 
         if (password && password === verPassword) {
-            axios.post('/api/register', {username, email, password})
+            axios.post('/api/register', {email, password})
                 .then(res => {
                     this.props.getUser(res.data)
                     this.props.history.push('/')
@@ -68,11 +67,11 @@ handleRegister = () => {
                     ? (
                         <div>
                         <h5>Register</h5>
-                        <input
-                        value={this.state.username}
-                        name= 'username'
-                        placeholder = 'Username'
-                        onChange= {e => this.handleInput(e)}/>
+                        {/* <input
+                        value={this.state.email}
+                        name= 'email'
+                        placeholder = 'Email'
+                        onChange= {e => this.handleInput(e)}/> */}
                         </div>
                     ) : <h5>Login</h5>}
                     <input value= {this.state.email}

@@ -1,8 +1,7 @@
 insert into blush_user(
-    username, email, password
+    email, password
 ) values(
-    ${username},
     ${email},
     ${hash}
 )
-returning user_id, username, email;
+returning user_id, email;

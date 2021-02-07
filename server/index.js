@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express'),
       authCtrl = require('./controllers/authController'),
       productCtrl = require('./controllers/productController'),
+      mailCtrl = require('./controllers/mailController'),
       massive = require('massive'),
       session = require('express-session')
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET, S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY} = process.env;
@@ -58,6 +59,8 @@ massive({
     console.log('db connected')
 })
 
+//nodemailer endpoint
+app.post('/api/email', mailCtrl.email)
 
 //Auth endpoints
 app.post('/api/register', authCtrl.register)
