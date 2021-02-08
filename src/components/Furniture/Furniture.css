@@ -1,7 +1,6 @@
 .container-box {
     display: flex;
     align-items: center;
-    position: relative;
     margin: 0 auto;
     padding: 1rem;
     box-sizing: border-box; 
@@ -14,11 +13,8 @@
 .container-box .photo {
     height: 35%;
     width: 35%;
-    padding: 50px 0 0 30px;
     display: flex;
-    flex-direction: row;
     box-sizing: border-box;
-    justify-content: space-evenly;
     margin: 0 0 5px 0;
 }
 .container-box h4 {

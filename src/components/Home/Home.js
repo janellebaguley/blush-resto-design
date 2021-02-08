@@ -1,20 +1,14 @@
-import {Component} from 'react';
-import {Link} from 'react-router-dom'
+// import {Component} from 'react';
+import {withRouter, Link} from 'react-router-dom'
 import big_design from './big_design.jpg'
 import whiteframe from './whiteframe.jpg'
 import xmas from './xmas.jpg'
 import purple from './purple.jpg'
 import design from './design.jpg'
 import './Home.css'
-import axios from 'axios';
 
-class Home extends Component {
-    constructor(){
-        super()
-        this.state = {
-        }
-      }
-      render(){
+function Home() {
+    
         return(
             <section>
               <div className = 'container'>
@@ -36,5 +30,5 @@ class Home extends Component {
 </section>
         )
  }
-}
-export default Home;
+
+export default withRouter(Home);

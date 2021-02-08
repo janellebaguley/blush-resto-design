@@ -12,14 +12,11 @@ function Designs (){
           <img src={IMG_0979} alt='xmas tree'/>
           <img src={IMG_1036} alt='xmas tree'/>
           <img src={IMG_1066} alt='xmas tree'/>
-          <img src={IMG_0979} alt='xmas tree'/>
+          <img src={IMG_1075} alt='xmas tree'/>
           </div>
           <div className = 'display'>
           <Link to='/contact'>  <h2 className ='contact'>Contact Me!</h2> </Link>
-          {/* <img src={IMG_0979} alt='xmas tree'/>
-          <img src={IMG_1066} alt='xmas tree'/>
-          <img src={IMG_1075} alt='xmas tree'/>
-          <img src={IMG_1036} alt='xmas tree'/> */}
+          
           </div>
 
         </section>       
