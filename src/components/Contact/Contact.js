@@ -7,8 +7,8 @@ const Contact = props => {
         [email, setEmail] = useState(''),
         [subject, setSubject] = useState(''),
         [message, setMessage] = useState(''),
-        [messageSent, setMessageSent] = useState(false)
-}
+        [messageSent, setMessageSent] = useState(false);
+
 
     useEffect(() => {
         document.title = 'Contact - Blush Restoration and Design'
@@ -25,3 +25,42 @@ const Contact = props => {
         })
         .catch(err => console.log(err))
     }
+    return(
+        <main>
+            <h1>Contact me!</h1>
+            <section>
+                <p>Let me decorate your tree, this year! Please fill out the form and we will be happy to update you with our availability.</p>
+            </section>
+            {!messageSent
+                ? (
+                    <form>
+                        <label>Name *</label>
+                        <div>
+                            <section>
+                                <input value={firstName} required onChange={e => setFirstName(e.target.value)}/>
+                                <span>First Name</span>
+                            </section>
+                            <section>
+                                <input value={lastName} required onChange={e => setLastName(e.target.value)}/>
+                                <span>Last Name</span>
+                            </section>
+                        </div>
+                        <label>Email *</label>
+                        <input value={email} required onChange={e => setEmail(e.target.value)}/>
+                        <label>Subject *</label>
+                        <input value={subject} required onChange={e => setSubject(e.target.value)}/>
+                        <label>Message *</label>
+                        <input value={message} required autoComplete = 'off' onChange={e => setMessage(e.target.value)}/>
+                        <button onClick={sendMessage}>Submit</button>
+                    </form>
+                ) : (
+                    <section>
+                        <h2>Your message was sent.</h2>
+                        <h3>We will reply to your request as soon as  possible.</h3>
+                        <button onClick={() => setMessageSent(false)}>New Message</button>
+                    </section>
+                )}
+        </main>
+    )
+}
+export default Contact;
