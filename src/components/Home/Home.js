@@ -17,7 +17,7 @@ function Home() {
              <Link to = '/furniture'><button className = 'btn'>Shop Now</button></Link> 
               </div>
               
-             <div  >
+             <div>
         <Link to = '/furniture' className = 'home-page'><img src={whiteframe} alt='white frame'/>
         
         <img src={purple} alt='purple table'/>
