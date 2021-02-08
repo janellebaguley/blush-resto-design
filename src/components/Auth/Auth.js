@@ -87,7 +87,7 @@ handleRegister = () => {
                         placeholder = 'Email'
                         onChange= {e => this.handleInput(e)}/> */}
                         </div>
-                    ) : <h5>Login</h5>}
+                    ) : <h4>Login</h4>}
                     <input value= {this.state.email}
                     name = 'email'
                     placeholder = 'Email'
@@ -119,7 +119,7 @@ handleRegister = () => {
                 </div>)}
                 
                 <h3>{this.state.email}</h3> 
-                <button  onClick={this.handleLogout}>Logout</button>
+                <button  className = 'logout' onClick={this.handleLogout}>Logout</button>
                     
                 </section>
             </div>

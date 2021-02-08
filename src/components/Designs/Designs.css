@@ -5,16 +5,20 @@
     box-sizing: content-box;
     height: 55%;
     width: 50%;
-    margin: 0px 50px 0px 50px;
+    margin: 0px 50px 80px 50px;
     align-items: center;
+    text-decoration: none;
 }
-h2 {
-    color: rgb(1, 1, 56);
-    text-decoration: none;  
-}
+
 .contact {
+    font-size: 30px;
     align-items: center;
     margin: 30px;
+    color: rgb(1, 1, 56);
+    text-decoration: underline  rgb(1, 1, 56);
+}
+.contact:active {
+    color:rgb(1, 1, 56);
     text-decoration: none;
 }
 @media(max-width: 768px){

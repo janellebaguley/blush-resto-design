@@ -12,13 +12,14 @@ input {
     border: none;
     color: black;
     margin: 15px;
+    padding: 2px 0 2px 10px;
     font-size: 18px;
 }
 .bottom-margin {
     margin: 50px 0 200px 0;
 }
 .logout {
-    margin: 0;
+    margin: 0 0 80px 0;
 }
 @media(max-width: 768px) {
     input {

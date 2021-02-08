@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom'
 import axios from 'axios';
 import white_frame from './white_frame.jpg'
 import Auth from '../Auth/Auth'
