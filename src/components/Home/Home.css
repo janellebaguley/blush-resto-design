@@ -31,17 +31,20 @@
 .container .btn:hover {
     background-color: #FFF3FA;
 }
-@media(max-width: 800px) {
+@media(max-width: 768px) {
     .big-photo {
-        width: 65vw;
+        width: 55vw;
+        height: 45vh;
     }
     .container .btn {
+        top: 80%;
+        left: 50%;
         font-size: 24px;
-        width: 150px;
-        left: 60%
+        width: 130px;
+        left: 50%;
     }
     .home-page {
-        width: 70vw;
+        width: 60vw;
         align-items: center;
         margin: 0 0 0 25px;
     }

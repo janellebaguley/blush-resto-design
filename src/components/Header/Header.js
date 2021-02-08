@@ -19,7 +19,7 @@ class Header extends Component {
     return (
         <div>
         <header className = 'header-container'>
-        <h1><img src={blush} alt='Blush Restoration and Design'/></h1>
+        <h1><img className='blush' src={blush} alt='Blush Restoration and Design'/></h1>
         
             <nav className='desktop-menu'>
                 <Link to = '/' className='nav-links'>Home</Link>
