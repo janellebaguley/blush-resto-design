@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import './Contact.css';
 
 const Contact = props => {
     let [firstName, setFirstName] = useState(''),
@@ -14,7 +15,7 @@ const Contact = props => {
         document.title = 'Contact - Blush Restoration and Design'
     }, [])
 
-    sendMessage = (e) => {
+    const sendMessage = (e) => {
         e.preventDefault();
 
         axios.post('/api/email', firstName, lastName, email, subject, message)
@@ -26,32 +27,32 @@ const Contact = props => {
         .catch(err => console.log(err))
     }
     return(
-        <main>
+        <main className='contact-me'>
             <h1>Contact me!</h1>
-            <section>
+            <section className='contact-info'>
                 <p>Let me decorate your tree, this year! Please fill out the form and we will be happy to update you with our availability.</p>
             </section>
             {!messageSent
                 ? (
-                    <form>
+                    <form className='contact-form'>
                         <label>Name *</label>
                         <div>
-                            <section>
+                            <section className='name-input'>
                                 <input value={firstName} required onChange={e => setFirstName(e.target.value)}/>
-                                <span>First Name</span>
+                                <span className ='name'>First Name</span>
                             </section>
-                            <section>
+                            <section className='name-input'>
                                 <input value={lastName} required onChange={e => setLastName(e.target.value)}/>
-                                <span>Last Name</span>
+                                <span className ='name'>Last Name</span>
                             </section>
                         </div>
                         <label>Email *</label>
                         <input value={email} required onChange={e => setEmail(e.target.value)}/>
                         <label>Subject *</label>
                         <input value={subject} required onChange={e => setSubject(e.target.value)}/>
-                        <label>Message *</label>
-                        <input value={message} required autoComplete = 'off' onChange={e => setMessage(e.target.value)}/>
-                        <button onClick={sendMessage}>Submit</button>
+                        <label className= 'message'>Message *</label>
+                        <textarea value={message} required autoComplete = 'off' onChange={e => setMessage(e.target.value)}/>
+                        <button className= 'submit-button' onClick={sendMessage}>Submit</button>
                     </form>
                 ) : (
                     <section>

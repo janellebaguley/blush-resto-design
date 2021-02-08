@@ -8,6 +8,11 @@
     margin: 0px 50px 0px 50px;
     align-items: center;
 }
+
+.contact {
+    align-items: center;
+    margin: 30px;
+}
 @media(max-width: 768px){
     .display {
         margin: 0 0 0 20px;
