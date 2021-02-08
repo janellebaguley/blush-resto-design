@@ -1,83 +1,39 @@
-.container-box { 
-    /* width: 70vw; */
+.container-box {
     display: flex;
-    align-items: center; 
-    margin: margin 0 auto;
-    padding: 2rem;
-    /* box-sizing: border-box;
-    justify-content: space-evenly; */
+    align-items: center;
+    position: relative;
+    margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box; 
+    justify-content: space-evenly; 
     flex-direction: column;
-    text-transform: capitalize; 
+    text-transform: capitalize;
+    text-align: center;
+    text-indent: 0;
 }
-.photo {
+.container-box .photo {
     height: 35%;
     width: 35%;
     padding: 50px 0 0 30px;
     display: flex;
-    align-items: left;
+    flex-direction: row;
     box-sizing: border-box;
     justify-content: space-evenly;
     margin: 0 0 5px 0;
 }
-h4 {
+.container-box h4 {
     margin: 1rem 0 .2rem 0;
+    text-align: center;
 }
-h5 {
+.container-box h5 {
     margin: 1rem;
+    text-align: center;
 }
-.button {
+.container-box .button {
     width: 65px;
     align-items: center;
     justify-content: flex;
     flex-direction: column;
     margin: 5px 0 0 0;
-}
-@media(max-width: 800px){
-    .container-box {
-        align-items: center;
-        margin: 0 250px 0 0;
-        flex-direction: column;
-    }
-    
-    .button {
-        width: 50px;
-        font-size: 14px;
-        margin: 5px 0 0 20px;
-    }
-    h4 {
-        font-size: 16px;
-        align-items: center;
-        margin: 0 0 0 30px;
-    }
-    h5 {
-        font-size: 14px;
-        align-items: center;
-        margin: 0 0 0 20px;
-    }
-}
-@media(max-width: 570px) {
-    .container-box {
-        align-items: center;
-        margin: 0 auto;
-        background-color: #FFF3FA;
-    }
-    .photo {
-        height: 55%;
-        width: 55%;
-    }
-    .button {
-        width: 30px;
-        font-size: 12px;
-        margin: 5px 0 0 20px;
-    }
-    h4 {
-        font-size: 14px;
-        align-items: center;
-        margin: 0 0 0 20px;
-    }
-    h5 {
-        font-size: 12px;
-        align-items: center;
-        margin: 0 0 0 20px;
-    }
+    text-align: center;
 }

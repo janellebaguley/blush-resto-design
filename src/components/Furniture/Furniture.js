@@ -82,7 +82,8 @@ handleGetSessionUser = () => {
     })
     // console.log(this.state.furniture)
     return(
-      <div>
+      <main className='container-box'>
+      
             {/* <h3>Furniture</h3> */}
             {this.state.furniture?.map((furniture, i) => (
               <div key={i} className='container-box'> 
@@ -105,7 +106,8 @@ handleGetSessionUser = () => {
                   toggle = {this.handleToggle}/>)
                 :(null)}
             </div>
-        </div>
+        
+        </main>
     )
   }    
 }

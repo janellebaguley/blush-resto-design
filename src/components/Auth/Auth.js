@@ -12,6 +12,7 @@ class Auth extends Component {
         super(props)
         this.state = {
             email: '',
+            emailError: null,
             password: '',
             verPassword: '',
             registerView: false
@@ -26,6 +27,7 @@ class Auth extends Component {
     handleToggle = () => {
         this.setState({registerView: !this.state.registerView})
     }
+    
  
 handleRegister = () => {
         const {email, password, verPassword} = this.state
@@ -62,6 +64,14 @@ handleRegister = () => {
             })
             .catch(err => console.log(err))
     }
+    // validate = () => {
+    //     const reg= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    //     if(!this.state.email || reg.test(this.state.email) === false) {
+    //         this.setState({emailError: 'Email field is invalid.'})
+    //         return false;
+    //     }
+    //         return true;
+    // }
 
     render(){
         return(
@@ -81,8 +91,12 @@ handleRegister = () => {
                     <input value= {this.state.email}
                     name = 'email'
                     placeholder = 'Email'
+                    // type = 'email'
+                    // id = 'email' pattern = '.+@globex.com'
+                     required
                     onChange= {e => this.handleInput(e)}/>
-                    <input value={this.state.password}
+                    <input 
+                    value={this.state.password}
                     name= 'password'
                     placeholder = 'Password'
                     onChange={e => this.handleInput(e)}/>
