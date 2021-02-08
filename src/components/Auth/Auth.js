@@ -3,6 +3,8 @@ import axios from 'axios'
 import {connect} from 'react-redux'
 import {getUser} from '../../redux/reducer';
 import {clearUser} from '../../redux/reducer';
+// import {validator} from 'email-validator'
+
 import './Auth.css';
 
 class Auth extends Component {
@@ -15,6 +17,8 @@ class Auth extends Component {
             registerView: false
         }
     }
+    
+
     handleInput = (event) => {
         this.setState({[event.target.name]: event.target.value})
     }
@@ -22,7 +26,7 @@ class Auth extends Component {
     handleToggle = () => {
         this.setState({registerView: !this.state.registerView})
     }
-
+ 
 handleRegister = () => {
         const {email, password, verPassword} = this.state
 

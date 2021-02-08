@@ -16,19 +16,19 @@ const Contact = props => {
     }, [])
 
     const sendMessage = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
 
         axios.post('/api/email', firstName, lastName, email, subject, message)
         .then(() => {
-            setMessageSent(true)
-            setSubject('')
-            setMessage('')
+            setMessageSent(true);
+            setSubject('');
+            setMessage('');
         })
         .catch(err => console.log(err))
     }
     return(
         <main className='contact-me'>
-            <h1>Contact me!</h1>
+            <h2>Contact me!</h2>
             <section className='contact-info'>
                 <p>Let me decorate your tree, this year! Please fill out the form and we will be happy to update you with our availability.</p>
             </section>

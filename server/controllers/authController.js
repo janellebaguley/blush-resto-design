@@ -1,4 +1,5 @@
 const bcrypt = require('bcryptjs')
+// const validator = require('email-validator')
 
 module.exports = {
     register: async(req, res) => {

@@ -8,10 +8,14 @@
     margin: 0px 50px 0px 50px;
     align-items: center;
 }
-
+h2 {
+    color: rgb(1, 1, 56);
+    text-decoration: none;  
+}
 .contact {
     align-items: center;
     margin: 30px;
+    text-decoration: none;
 }
 @media(max-width: 768px){
     .display {

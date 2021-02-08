@@ -5,7 +5,7 @@ module.exports = {
     email: async(req, res) => {
         try {
             let transporter = nodemailer.createTransport({
-                host: 'smtp.mail.gmail.com',
+                host: 'smtp.gmail.com',
                 port: 587,
                 service: 'gmail',
                 secure: false,
@@ -14,7 +14,7 @@ module.exports = {
                     user: EMAIL,
                     pass: PASSWORD
                 }
-            })
+            });
             let info = await transporter.sendMail({
                 from: 'Christina Johnson <${EMAIL}>',
                 to: 'receiver email',
