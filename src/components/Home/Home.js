@@ -16,7 +16,6 @@ function Home() {
             alt='' className = 'big-photo'/>
              <Link to = '/furniture'><button className = 'btn'>Shop Now</button></Link> 
               </div>
-              
              <div>
         <Link to = '/furniture' className = 'home-page'><img src={whiteframe} alt='white frame'/>
         

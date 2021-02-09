@@ -35,7 +35,6 @@
     box-sizing: border-box;
     padding-left: 10px;
     border: 1px solid #242424;
-    /* border-radius: 3px; */
     font-size: 15px;
     color: black;
 }
@@ -47,7 +46,6 @@
     border: 1px solid #242424;
     border-radius: 3px;
     font-size: 15px;
-    /* font-family: sans-serif; */
 }
 
 .contact-form div {
@@ -58,8 +56,9 @@
 }
 
 .name-input {
-    width: 48%;
+    width: 45%;
     position: relative;
+    margin: 0 30px 0 5px;
 }
 
 .name-input input {
