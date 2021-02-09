@@ -1,37 +1,53 @@
 .container-box {
-    display: flex;
+    width: 90vw;
+    padding: .2rem 0;
+    background-color: #FFF3FA;
+    border-radius: 0.5rem;
+    margin: 1rem 2.5rem;
+    align-items: center;
+    display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr; 
+        grid-column-gap: 1.5rem;
+}
+.container-box img {
+    width: 90%;
+    display: block;
+}
+.img-container {
+    position: relative;
+}
+.add-button {
+    /* display: block; */
     align-items: center;
     margin: 0 auto;
-    padding: 1rem;
-    box-sizing: border-box; 
-    justify-content: space-evenly; 
-    flex-direction: column;
-    text-transform: capitalize;
-    text-align: center;
-    text-indent: 0;
 }
-.container-box .photo {
-    height: 35%;
-    width: 35%;
-    display: flex;
-    /* flex-direction: column; */
-    box-sizing: border-box;
-    /* justify-content: space-evenly; */
-    margin: 0 0 5px 0;
+.furniture-info {
+    padding: 1rem 0.5rem;
 }
-.container-box h4 {
-    margin: 1rem 0 .2rem 0;
-    text-align: center;
-}
-.container-box h5 {
-    margin: 1rem;
-    text-align: center;
-}
-.container-box .button {
-    width: 65px;
-    align-items: center;
-    justify-content: flex;
-    flex-direction: column;
-    margin: 5px 0 0 0;
-    text-align: center;
-}
+ h4 {
+     text-transform: capitalize;
+     color: black;
+     margin: 0 auto;
+     align-items: center;
+     text-align: center;
+ }
+ h5 {
+     text-transform: capitalize;
+     color: black;
+     margin: 0 auto; 
+     align-items: center;
+     text-align: center;
+ }
+ @media (max-width: 768px){
+     .container-box {
+        width: 60vw;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+     }
+ }
+ @media(max-width: 570px) {
+    .container-box {
+        width: 50vw;
+        grid-template-columns: 1fr;
+     }
+ }

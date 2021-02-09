@@ -81,19 +81,20 @@ handleGetSessionUser = () => {
     })
     // console.log(this.state.furniture)
     return(
-      <main className='container-box'>
-      
+      <main >
+          <article className='container-box'>
             {/* <h3>Furniture</h3> */}
             {this.state.furniture?.map((furniture, i) => (
-              <div key={i} className='container-box'> 
+              <div key={i} className='image-container'> 
               <img src={white_frame} className = 'photo' />
-            <h4>
-             {furniture.product_name}</h4>
-             <h5>${furniture.product_price}.00</h5>
-
-             <button className = 'button' onClick ={() => this.addToCart(furniture.product_id)}>Add</button>
+              <div className = 'furniture-info'> 
+                <h4>{furniture.product_name}</h4>
+                <h5>${furniture.product_price}.00</h5>
+              </div>
+             <button className = 'add-button' onClick ={() => this.addToCart(furniture.product_id)}>Add</button>
              </div>
             )) }
+            </article>
             <section>
               {mappedFurniture}
             </section>

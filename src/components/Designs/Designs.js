@@ -8,15 +8,14 @@ import './Designs.css'
 function Designs (){
     return(
         <section >
-          <Link to='/contact' className ='contact'> Contact Me!</Link>
+          <Link to='/contact' > <h3 className ='contact'>Contact Me!</h3> </Link>
           <div className = 'display'>
           <img src={IMG_0979} alt='xmas tree'/>
           <img src={IMG_1036} alt='xmas tree'/>
           <img src={IMG_1066} alt='xmas tree'/>
           <img src={IMG_1075} alt='xmas tree'/>
           </div>
-          <div className = 'display'>
-          </div>
+          
 
         </section>       
     )

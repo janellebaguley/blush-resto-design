@@ -51,6 +51,10 @@ button:hover {
 button {
   width: 95px;
   font-size: 18px;
+  background-color: white;
+  border-radius: .5rem;
+  border: .05rem solid lightgray;
+  padding: .1rem;
 }
 
 @media(max-width: 768px) {
