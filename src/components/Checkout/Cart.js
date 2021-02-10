@@ -66,7 +66,7 @@ class Cart extends Component {
                         total ={Math.round(this.state.total * 100)}
                         getUser ={this.handleGetUser}
                         order= {this.state.user.order_id}
-                        user={this.setState.user.user_id}/>
+                        user={this.state.user.user_id}/>
                    </div>
                    {mappedCart}
                 </section>    

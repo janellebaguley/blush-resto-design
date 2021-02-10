@@ -14,6 +14,8 @@ class Header extends Component {
     toggleDropdown = () => {
         this.setState({dropdownView: !this.state.dropdownView})
       }
+    
+   
 
     render(){
     return (

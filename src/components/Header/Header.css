@@ -25,6 +25,7 @@ img {
     width: 38%;
     padding: 40px 0 0 30px;
     display: flex;
+    align-items: center;
 }
 .dropdown {
     display: none;
@@ -38,8 +39,9 @@ img {
         display: none;
     }
    .blush {
-       height: 90%;
-       width: 90%;
+       height: 60%;
+       width: 60%;
+       margin: 0 0 0 .5rem;
    }
     .nav-links {
         display: flex;
@@ -61,13 +63,13 @@ img {
     .desktop-menu{
      display: none;
     }
-    
+
     .dropdown {
         display: initial;
         font-size: 18px;
         cursor: pointer;
         /* padding: 15px; */
-        margin: 60px 300px 20px 0;
+        margin: 60px 340px 10px 0;
        }
        .mobile-menu{
         display: inline-block;
@@ -89,13 +91,13 @@ img {
         display: none;
     }
     .blush {
-        height: 90%;
-        width: 90%;
+        height: 80%;
+        width: 80%;
     }
     img {
         height: 55%;
         width: 55%;
-        /* padding: 40px 0 0 30px; */
+        padding: 40px 0 0 20px;
         display: flex;
         align-items: center;
     }
@@ -109,6 +111,8 @@ img {
         margin: 10px 30px 10px 0;
     }
     .dropdown {
-      margin: 60px 160px 20px 0;
+        font-size: 14px;
+        align-items: right;
+        margin: 40px 265px 0 0;
     }
 }

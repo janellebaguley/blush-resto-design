@@ -24,16 +24,28 @@
 }
 @media(max-width: 768px){
     .display {
-        margin: 0 0 0 20px;
+        margin: 0 3rem 2rem 3rem;
         align-items: center;
-        height: 14rem;
-        width: 14rem;
+        height: 16rem;
+        width: 16rem;
+        display: flex;
+    }
+    .contact {
+        font-size: 24px;
+        margin: 10px 200px 10px 0;
+
     }
 }
 @media(max-width: 570px){
     .display {
-        height: 10rem;
-        width: 10rem;
-        margin: 0;
+        height: 70vh;
+        width: 95vw;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 0 20px;
+    }
+    .contact {
+        font-size: 18px;
+        margin: 10px;
     }
 }

@@ -34,15 +34,16 @@
 
 @media(max-width: 768px) {
     .big-photo {
-        width: 55vw;
-        height: 45vh;
+        width: 47vw;
+        height: 40vh;
+        padding: 10px 20px;
     }
     .container .btn {
         top: 80%;
-        left: 50%;
+        left: 45%;
         font-size: 24px;
         width: 130px;
-        left: 50%;
+        /* left: 50%; */
     }
     .home-page {
         width: 60vw;
@@ -52,10 +53,12 @@
 }
 @media(max-width: 570px){
 .big-photo {
-        width: 80vw;
+        width: 85vw;
         margin: 0;
     }
 .container .btn {
+    top: 85%;
+    left: 60%;
     font-size: 18px;
     width: 100px;
 }
