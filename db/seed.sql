@@ -1,5 +1,4 @@
 create table blush_user(user_id serial primary key,
-username varchar(20),
 email varchar(100),
 password varchar(250));
 
@@ -17,15 +16,8 @@ create table orders(order_id serial primary key,
 user_id int references blush_user(user_id),
 order_total integer);	
 
--- create table order_item(order_item_id serial primary key, 
--- order_id int references orders(order_id),
--- product_id int references furniture(product_id),
--- quantity integer,
--- price integer)
-
-alter table order_item add user_id int references blush_user(user_id)
-
--- CREATE TABLE order_items (,
---     order_id integer REFERENCES orders ON DELETE CASCADE,
---     quantity integer,
--- );
+create table order_item(order_item_id serial primary key, 
+order_id int references orders(order_id),
+product_id int references furniture(product_id),
+quantity integer,
+price integer)

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import white_frame from './white_frame.jpg'
 import Auth from '../Auth/Auth'
-import FurnitureDisplay from './FurnitureDisplay'
+// import FurnitureDisplay from './FurnitureDisplay'
 import './Furniture.css';
 
 class Furniture extends Component{
@@ -11,7 +11,6 @@ class Furniture extends Component{
     this.state = {
       furniture: [],
       user: {},
-      quantity: 1,
       registerView: false
     }
     
@@ -44,7 +43,8 @@ handleGetSessionUser = () => {
     // console.log(this.state.order_id)
     if(this.state.user.user_id){
       const orderItem= 
-      {order_id: this.state.user.order_id, furniture: furnitureId, 
+      {order_id: this.state.user.order_id, 
+      furniture: furnitureId, 
       quantity: 1,
       price}
 
@@ -59,26 +59,17 @@ handleGetSessionUser = () => {
   handleLogin = (data) => {
     this.setState({user: data})
   }
-  handleQuantityInc = () => {
-    this.setState({
-      quantity: 2
-    })
-  }
-  handleQuantityDec = () => {
-    this.setState({
-      quantity: 1
-    })
-  }
+  
 
   render() {
-    const mappedFurniture = this.state.furniture.map((furniture, i) => {
-      return (
-        <FurnitureDisplay
-          key={i}
-          furniture={furniture}
-          addToCart={this.addToCart}/>
-      )
-    })
+    // const mappedFurniture = this.state.furniture.map((furniture, i) => {
+    //   return (
+    //     <FurnitureDisplay
+    //       key={i}
+    //       furniture={furniture}
+    //       addToCart={this.addToCart}/>
+    //   )
+    // })
     // console.log(this.state.furniture)
     return(
       <main >
@@ -86,7 +77,7 @@ handleGetSessionUser = () => {
             {/* <h3>Furniture</h3> */}
             {this.state.furniture?.map((furniture, i) => (
               <div key={i} className='image-container'> 
-              <img src={white_frame} className = 'photo' />
+              <img src={white_frame} alt = 'frame' className = 'photo' />
               <div className = 'furniture-info'> 
                 <h4>{furniture.product_name}</h4>
                 <h5>${furniture.product_price}.00</h5>
@@ -96,7 +87,7 @@ handleGetSessionUser = () => {
             )) }
             </article>
             <section>
-              {mappedFurniture}
+              {/* {mappedFurniture} */}
             </section>
             <div>
               {this.state.registerView

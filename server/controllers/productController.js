@@ -8,11 +8,11 @@ module.exports = {
     },
     
     addToCart: async(req,res) => {
-           const {order_id, product_id, quantity, price} = req.body
+           const {order_id, furnitureId, quantity, price} = req.body
         // console.log(order_id, furnitureId, quantity)
         const db = req.app.get('db');
         
-       await db.orders.add_to_cart(order_id, product_id, quantity, price)
+       await db.orders.add_to_cart(order_id, furnitureId, quantity, price)
         .then(res.status(200))
         .catch(err => res.status(500).send(err))
     },

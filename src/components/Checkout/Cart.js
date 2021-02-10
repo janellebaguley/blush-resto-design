@@ -29,7 +29,7 @@ class Cart extends Component {
     }
 
     handleGetUserCart = async() => {
-        await axios.get (`/api/cart/${this.state.user.user_id}`)
+        await axios.get (`/api/user-cart/${this.state.user.user_id}`)
         .then(res => {
             this. setState({orderItems: res.data})
         })
