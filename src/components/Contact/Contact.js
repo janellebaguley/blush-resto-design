@@ -16,9 +16,9 @@ const Contact = props => {
     }, [])
 
     const sendMessage = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
 
-        axios.post('/api/email', firstName, lastName, email, subject, message)
+        axios.post('/api/email', {firstName, lastName, email, subject, message})
         .then(() => {
             setMessageSent(true);
             setSubject('');
@@ -38,11 +38,14 @@ const Contact = props => {
                         <label>Name *</label>
                         <div>
                             <section className='name-input'>
-                                <input value={firstName} required onChange={e => setFirstName(e.target.value)}/>
+                                <input value={firstName} 
+                                autoComplete='given-name' required onChange={e => setFirstName(e.target.value)}/>
                                 <span className ='name'>First Name</span>
                             </section>
                             <section className='name-input'>
-                                <input value={lastName} required onChange={e => setLastName(e.target.value)}/>
+                                <input value={lastName}
+                                autoComplete='given-name' 
+                                required onChange={e => setLastName(e.target.value)}/>
                                 <span className ='name'>Last Name</span>
                             </section>
                         </div>
@@ -54,7 +57,8 @@ const Contact = props => {
                         <textarea value={message} required autoComplete = 'off' onChange={e => setMessage(e.target.value)}/>
                         <button className= 'submit-button' onClick={sendMessage}>Submit</button>
                     </form>
-                ) : (
+                ) 
+                : (
                     <section>
                         <h2>Your message was sent.</h2>
                         <h3>We will reply to your request as soon as  possible.</h3>

@@ -19,7 +19,7 @@
 .add-button {
     /* display: block; */
     align-items: center;
-    margin: 0 auto;
+    margin: .3rem;
 }
 .furniture-info {
     padding: 1rem 0.5rem;
@@ -27,14 +27,14 @@
  h4 {
      text-transform: capitalize;
      color: black;
-     margin: 0 auto;
+     margin: .5rem 2rem;
      align-items: center;
      text-align: center;
  }
  h5 {
      text-transform: capitalize;
      color: black;
-     margin: 0 auto; 
+     margin: .2rem 2rem; 
      align-items: center;
      text-align: center;
  }
