@@ -21,7 +21,7 @@ class Register extends Component{
         if(password !== verPassword){
             alert("Passwords don't match")
         } else {
-            axios.post('/auth/register', {email, password})
+            axios.post('/auth/register-copy', {email, password})
             .then(res => {
                 this.props.history.push('/order-history')
             })

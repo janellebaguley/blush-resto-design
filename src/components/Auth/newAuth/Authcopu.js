@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 
-class Auth extends Compnent {
+class Auth extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -13,7 +13,7 @@ class Auth extends Compnent {
 
     handleLogin = async() => {
         const {email, password} = this.state;
-        await axios.post('/auth/login', {email, password})
+        await axios.post('/auth/login-copy', {email, password})
         .then(res => {
             this.props.login(res.data)
         })

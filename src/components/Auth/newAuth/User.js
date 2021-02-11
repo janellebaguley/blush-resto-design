@@ -26,7 +26,7 @@ class User extends Component {
     }
 
     handleGetUser = async() => {
-        await axios.get('/auth/session-user')
+        await axios.get('/auth/session-user-copy')
         .then(res => {
             this.setState({user: data})
         })

@@ -1,0 +1,1 @@
+select * from furniture where product_name = $1;

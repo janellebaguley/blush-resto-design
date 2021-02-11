@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express'),
       authCtrl = require('./controllers/authController'),
+      copyCtrl = require('./controllers/authControllercopy'),
       productCtrl = require('./controllers/productController'),
       mailCtrl = require('./controllers/mailController'),
       massive = require('massive'),
@@ -68,6 +69,11 @@ app.post('/auth/login', authCtrl.login)
 app.get('/auth/logout', authCtrl.logout)
 app.get('/auth/session-user', authCtrl.getSessionUser)
 
+// copy
+app.post('/auth/register-copy', copyCtrl.register)
+app.post('/auth/login-copy', copyCtrl.login)
+app.get('/auth/logout-copy', copyCtrl.logout)
+app.get('/auth/session-user-copy', copyCtrl.getSessionUser)
 
 //Product Endpoints
 app.get('/api/furniture', productCtrl.getProducts)
