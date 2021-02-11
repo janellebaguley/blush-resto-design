@@ -11,8 +11,9 @@ class Auth extends Component {
     constructor(props){
         super(props)
         this.state = {
+            user: {},
+            orders: [],
             email: '',
-            emailError: null,
             password: '',
             verPassword: '',
             registerView: false
@@ -32,22 +33,21 @@ class Auth extends Component {
 handleRegister = () => {
         const {email, password, verPassword} = this.state
 
-        if (password && password === verPassword) {
-            axios.post('/api/register', {email, password})
+        if (password !== verPassword)  {
+            alert("Passwords don't match")}
+            else {
+            axios.post('/auth/register', {email, password})
                 .then(res => {
-                    this.props.getUser(res.data)
                     this.props.history.push('/')
                 })
                 .catch(err => console.log(err))
-        } else {
-            alert("Passwords don't match")
-        }
+        } 
     }
 
-    handleLogin = () => {
+    handleLogin = async() => {
         const {email, password} = this.state
 
-        axios.post('/api/login', {email, password})
+        await axios.post('/auth/login', {email, password})
             .then(res => {
                 this.props.getUser(res.data)
                 this.props.history.push('/')
@@ -55,9 +55,10 @@ handleRegister = () => {
             })
             .catch(err => console.log(err))
     }
+
     handleLogout = () => {
         const {email, password} = this.state
-        axios.get('/api/logout', email, password)
+        axios.get('/auth/logout', email, password)
             .then(() => {
                 this.props.clearUser();
                 this.props.history.push('/')

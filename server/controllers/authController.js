@@ -18,7 +18,7 @@ module.exports = {
         const [newUser] = await db.users.register_user({email, hash})
         newUser = newUser[0]
         delete newUser.password
-        let userCart = await db.user.create_user_cart(newUser.user_id)
+        let userCart = await db.users.create_user_cart(newUser.user_id)
         userCart = userCart [0]
         newUser = {...newUser, ...userCart}
         session.user = newUser

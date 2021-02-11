@@ -63,10 +63,10 @@ massive({
 app.post('/api/email', mailCtrl.email)
 
 //Auth endpoints
-app.post('/api/register', authCtrl.register)
-app.post('/api/login', authCtrl.login)
-app.get('/api/logout', authCtrl.logout)
-app.get('/api/session-user', authCtrl.getSessionUser)
+app.post('/auth/register', authCtrl.register)
+app.post('/auth/login', authCtrl.login)
+app.get('/auth/logout', authCtrl.logout)
+app.get('/auth/session-user', authCtrl.getSessionUser)
 
 
 //Product Endpoints
