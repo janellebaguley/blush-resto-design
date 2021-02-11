@@ -1,56 +1,51 @@
 const bcrypt = require('bcryptjs')
-const session = require('express-session')
 
 module.exports = {
-        register: async(req, res) => {
-            const {email, password} = req.body
-            const db = req.app.get('db')
-            const {session} = req
-    
-            let [user] = await db.users.check_user_for_cart(email)
-            user = user[0]
+    register: async(req, res) => {
+            const {email, password} = req.body;
+            const db = req.app.get('db');
+            const {session} = req;
+            let user = await db.users.check_user(email);
+            user = user[0];
             if(user){
-                return res.status(400).send('Email already in use')
+                return res.status(400).send('User already exists')
             }
-    
-            const salt = bcrypt.genSaltSync(10)
-            const hash = bcrypt.hashSync(password, salt)
-    
-            let newUser = await db.users.register_user(email, hash)
-            newUser = newUser[0]
-            delete newUser.password
-            let userCart = await db.users.create_user_cart(newUser.user_id)
-            userCart = userCart [0]
+            const salt = bcrypt.genSaltSync(10);
+            const hash = bcrypt.hashSync(password, salt);
+            let newUser = await db.users.register(email, hash);
+            newUser = newUser[0];
+            delete newUser.password;
+            let userCart = await db.users.create_user_cart(newUser.user_id);
+            userCart = userCart[0]
             newUser = {...newUser, ...userCart}
-            session.user = newUser
-            res.status(201).send(session.user)
+            session.user = newUser;
+            res.status(201).send(session.user);
         },
         login: async(req, res) => {
             const {email, password} = req.body;
             const db = req.app.get('db');
             const {session} = req;
-    
-            const user = await db.users.check_user_for_cart(email)
-            user = user[0]
+            let user = await db.users.check_user(email);
+            user = user[0];
             if(!user){
                 return res.status(400).send('Email not found')
             }
-    
-            const foundUser = bcrypt.compareSync(password, user.password)
+            const foundUser = bcrypt.compareSync(password, user.password);
             if(foundUser){
-                delete user.password
+                delete user.password;
                 session.user = user;
-                res.send(session.user)
+                res.send(session.user);
             } else {
                 res.status(400).send('Incorrect password')
             }
         },
         logout: (req, res) => {
-            req.session.destroy()
-            res.sendStatus(200)
+            req.session.destroy();
+            res.sendStatus(200);
         },
         getSessionUser: (req, res) => {
-            const {user} =req.session
+            const {user} = req.session;
+    
             if(user){
                 res.send(user)
             } else {

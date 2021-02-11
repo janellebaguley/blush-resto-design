@@ -32,6 +32,13 @@ module.exports = {
         .then(() => res.sendStatus(200))
         .catch(err => res.status(500).send(err))
     },
+    getOrderHistory: (req, res) => {
+        const {id} = req.params
+        const db = req.app.get('db')
+        db.users.order_history(id)
+        .then(() => res.sendStatus(200))
+        .catch(err => res.status(500).send(err))
+    },
     removeProduct: async(req, res) => {
         const {id} = req.params
         const db = req.app.get('db')

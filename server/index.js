@@ -72,6 +72,7 @@ app.get('/auth/session-user', authCtrl.getSessionUser)
 //Product Endpoints
 app.get('/api/furniture', productCtrl.getProducts)
 app.get('/api/user-cart/:id', productCtrl.getCart)
+app.get('/api/order-history/:id', productCtrl.getOrderHistory)
 app.post('/api/cart', productCtrl.addToCart)
 
 app.put('/api/item-quantity/:id', productCtrl.updateQuantity)
