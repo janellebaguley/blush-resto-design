@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom'
 import axios from 'axios';
 import './Contact.css';
 
@@ -63,6 +64,7 @@ const Contact = props => {
                         <h2>Your message was sent.</h2>
                         <h3>We will reply to your request as soon as  possible.</h3>
                         <button onClick={() => setMessageSent(false)}>New Message</button>
+                        <div ><Link to = '/'><button classname= 'home-btn'>Home</button></Link></div>
                     </section>
                 )}
         </main>

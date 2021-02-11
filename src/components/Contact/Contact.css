@@ -84,12 +84,17 @@
     text-align: center;
 }
 .submit-button {
-    margin: 10px 0 0 0;
-    
+    margin: 40px;
+}
+.home-btn {
+    margin: 40px;
 }
 @media(min-width: 768px){
     .contact-me {
         padding: 150px 150px 100px 150px;
+    }
+    .home-btn {
+        margin: 20px;
     }
 }
 
@@ -97,7 +102,9 @@
     .contact-me {
         padding: 150px 75px 100px 75px;
     }
-
+    .home-btn {
+        margin: 10px;
+    }
     .contact-me h1 {
         font-size: 75px;
     }

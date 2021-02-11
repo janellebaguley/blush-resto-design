@@ -50,8 +50,7 @@ handleRegister = () => {
         await axios.post('/auth/login', {email, password})
             .then(res => {
                 this.props.getUser(res.data)
-                this.props.history.push('/')
-                
+                // this.props.history.push('/')
             })
             .catch(err => console.log(err))
     }
