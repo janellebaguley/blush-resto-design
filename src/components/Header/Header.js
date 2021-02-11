@@ -28,7 +28,7 @@ class Header extends Component {
                 <Link to = '/furniture' className='nav-links'>Furniture</Link>
                 <Link to = '/designs' className='nav-links'>Designs</Link>
                 <Link to = '/login' className='nav-links'>Login</Link>
-                <Link to = '/checkout' className='nav-links'>Cart</Link>
+                {/* <Link to = '/checkout' className='nav-links'>Cart</Link> */}
             </nav>
             <div className='dropdown' onClick={this.toggleDropdown}>Menu</div>
           {this.state.dropdownView
@@ -38,7 +38,7 @@ class Header extends Component {
                 <Link to = '/furniture' className='nav-links'>Furniture</Link>
                 <Link to = '/designs' className='nav-links'>Designs</Link>
                 <Link to = '/login' className='nav-links'>Login</Link>
-                <Link to = '/checkout' className='nav-links'>Cart</Link>
+                {/* <Link to = '/checkout' className='nav-links'>Cart</Link> */}
             </nav>
             )
             : null}
