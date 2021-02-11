@@ -15,7 +15,8 @@ function Designs (){
           <img src={IMG_1066} alt='xmas tree'/>
           <img src={IMG_1075} alt='xmas tree'/>
           </div>
-           </section>       
+          
+        </section>       
     )
   }    
 export default Designs;
