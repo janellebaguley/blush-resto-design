@@ -12,6 +12,7 @@
     display: flex;
     justify-content: space-evenly;
     padding: 60px;
+    outline: none;
 }
 .nav-links {
     text-decoration: none;
@@ -19,6 +20,7 @@
     color: black;
     font-size: 18px;
     padding: 50px 0 0 30px;
+    outline: none;
 }
 img {
     height: 38%;
